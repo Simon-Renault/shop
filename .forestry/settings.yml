@@ -8,7 +8,7 @@ sections:
   path: config/home_page
   label: Home page
 - type: document
-  path: config/about_age
+  path: config/about_page
   label: About Page
 upload_dir: ''
 public_path: https://simonr.s3.eu-west-2.amazonaws.com
