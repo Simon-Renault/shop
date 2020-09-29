@@ -53,7 +53,9 @@ module.exports = async (api) => {
 
         /// populating data ///
         const drawingJson = await listFiles(drawings_base_path)
+
         drawingJson.map(drawing => {
+
             const matchingProduct = ShopifyProduct.find(p => p.handle === drawing.shopify_referance)
 
             DrawingCollection.addNode({

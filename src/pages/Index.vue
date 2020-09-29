@@ -5,55 +5,21 @@
 
       <div class="grid">
 
-        <v-grid-item src="./imgs/crazy_city.jpg" s2/>
-        <v-grid-item src="./imgs/farm.jpg" />
-        <v-grid-item src="./imgs/flying.jpg" v2/>
+        <template v-for="(item,index) in grid_items" >
 
-        <v-grid-lift>
-          <span> Pen, paper ... <br> and a lot of patience </span>
-        </v-grid-lift>
+          <v-grid-item  v-if="item.template==='home-page-tile'" 
+            :item="item" 
+            :key="'grid-item'+index"/>
 
-        <v-grid-item src="./imgs/farm_1.jpg" />
-        <v-grid-item src="./imgs/tower.jpg"  v2/>
-        <v-grid-item src="./imgs/tower2.jpg" />
+          <v-grid-lift  v-if="item.template==='home_page_quote'" 
+            :key="'grid-item'+index">
+            <span v-html="item.quote"></span>
+          </v-grid-lift>
 
-        <v-grid-lift>
-          <span> A subtle mixing of order and chaos  </span>
-        </v-grid-lift>
+        </template>
 
-        <v-grid-item src="./imgs/coffe_shop.jpg"  v2/>
-        <v-grid-item src="./imgs/me.jpeg"  s2/>
-        <v-grid-item src="./imgs/bridge.jpg" />
-        <v-grid-item src="./imgs/tree.jpg" />
-        <v-grid-item src="./imgs/light.jpg"  v2/>
-        <v-grid-item src="./imgs/crazy_city_detail.jpg"  s2/>
-        <v-grid-item src="./imgs/tower.jpg" />
-        <v-grid-item src="./imgs/coffe_high.jpg" v2 />
-
-        <v-grid-lift>
-          <span> A really cool description of something </span>
-        </v-grid-lift>
-
-        <v-grid-item src="./imgs/elephant_detail.jpeg" v2/>
-        <v-grid-item src="./imgs/top.jpeg" />
-        <v-grid-item src="./imgs/coffe_shop_detail.jpg"  s2/>
-        <v-grid-item src="./imgs/photo.jpg" />
-        <v-grid-item src="./imgs/tree.jpg"  l2/>
-        <v-grid-item src="./imgs/me.jpeg"  />
-        <v-grid-item src="./imgs/elephant.jpeg"  s2/>
-
-        <v-grid-lift>
-          <span> A really cool description of something </span>
-        </v-grid-lift>
-       
-        <v-grid-item src="./imgs/elephant_detail.jpeg"  />
-        <v-grid-item src="./imgs/apartment.jpeg"  s2/>
-        <v-grid-item src="./imgs/coffe_high.jpg"  v2/>
-        <v-grid-item src="./imgs/bridge.jpg"  />
-        <v-grid-item src="./imgs/beast.jpg"  />
-        
       </div>
-      
+
     </v-centered-container>
    
   </Layout>
@@ -63,10 +29,17 @@
   import vGridItem from '@/components/v-grid-item.vue'
   import vGridLift from '@/components/v-grid-lift.vue'
 
+  import homeConfig from '../../config/home_page.json'
+
   export default {
     components: {
       'v-grid-lift': vGridLift,
       'v-grid-item': vGridItem
+    },
+    data(){
+      return{
+        grid_items : homeConfig.grid_config
+      }
     }
   }
 </script>
