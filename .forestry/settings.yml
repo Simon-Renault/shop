@@ -5,11 +5,10 @@ admin_path:
 webhook_url: 
 sections:
 - type: document
-  path: config/home_page
+  path: config/home_page.json
   label: Home page
-  read_only: false
 - type: document
-  path: config/about_page
+  path: config/about_page.json
   label: About Page
 upload_dir: ''
 public_path: https://simonr.s3.eu-west-2.amazonaws.com
