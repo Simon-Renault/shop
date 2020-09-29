@@ -16,5 +16,14 @@ fields:
     schema:
       format: html-blocks
   label: description
+- name: grid_config
+  type: blocks
+  label: grid config
+  template_types:
+  - home-page-tile
+  - home_page_quote
+  config:
+    min: 
+    max: 
 pages:
 - config/about_page.json
