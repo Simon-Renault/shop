@@ -3,7 +3,15 @@ new_page_extension: md
 auto_deploy: false
 admin_path: 
 webhook_url: 
-sections: 
+sections:
+- type: document
+  path: config/home_page
+  label: Home page
+  match: "**/*"
+- type: document
+  path: config/about_age
+  label: About Page
+  match: "**/*"
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
