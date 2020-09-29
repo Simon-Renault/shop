@@ -1,4 +1,14 @@
 ---
 label: drawing
 hide_body: false
-fields: []
+fields:
+- name: name
+  type: text
+  config:
+    required: false
+  label: name
+- name: shopify_referance
+  type: text
+  config:
+    required: false
+  label: shopify referance
