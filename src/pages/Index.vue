@@ -2,6 +2,7 @@
   <Layout>
 
     <v-centered-container class="project-grid">
+
       <div class="grid">
 
         <v-grid-item src="./imgs/crazy_city.jpg" s2/>
@@ -52,6 +53,7 @@
         <v-grid-item src="./imgs/beast.jpg"  />
         
       </div>
+      
     </v-centered-container>
    
   </Layout>
@@ -60,8 +62,6 @@
 <script>
   import vGridItem from '@/components/v-grid-item.vue'
   import vGridLift from '@/components/v-grid-lift.vue'
-
-
 
   export default {
     components: {
@@ -75,13 +75,10 @@
 <style lang="scss" >
 
 .featured-img{
- 
   margin:auto;
   padding: 30px 0;
- 
   &__content{
     overflow: hidden;
-   
     position: relative;
     margin: auto;
     padding: 0 70px;

@@ -10,12 +10,14 @@
 
         <div class="nav">
           <nav>
+
             <g-link class="link" to="/"><span>Home</span></g-link>
             <g-link class="link" to="/drawing"><span>Drawing</span></g-link>
             <g-link class="link" to="/shop"><span>Shop</span></g-link>
             <g-link class="link" to="/about"><span>About</span></g-link>
             <hr class="separator"/>
             <v-cart-icon-link/>
+
           </nav>
         </div>
 
@@ -59,11 +61,14 @@ export default {
   &:last-child{
     padding-right:0;
   }
-  
-  &:hover,&.active--exact{
+  &:hover{
     span{
       background: var(--light-grey);
-      border-radius: 3px;
+    }
+  }
+  &.active--exact{
+    span{
+      background: var(--light-grey);
     }
   }
 
@@ -75,6 +80,7 @@ export default {
     padding: 5px 10px;
     transition: all .3s ease;
     line-height: 35px;
+     border-radius: 3px;
     height:35px;
     svg{
       margin:0 0 2px 0;
@@ -146,11 +152,11 @@ export default {
     width:50px;
     background-image: url("../assets/logo.jpg");
     background-position: center;
-    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 86%;
     border-radius: 50%;
     box-shadow :0px 0px 0px 0px var(--light-grey);
     transition: all .3s ease;
-    
   }
   &:hover{
     .logo{

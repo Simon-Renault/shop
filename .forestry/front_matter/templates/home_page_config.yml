@@ -11,3 +11,5 @@ fields:
     schema:
       format: html
   label: intro
+pages:
+- config/home_page.json

@@ -7,3 +7,5 @@ fields:
   config:
     required: false
   label: instagram link
+pages:
+- config/about_page.json
