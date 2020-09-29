@@ -1,4 +1,9 @@
 ---
 label: about_page_config
 hide_body: false
-fields: []
+fields:
+- name: instagram_link
+  type: text
+  config:
+    required: false
+  label: instagram link
