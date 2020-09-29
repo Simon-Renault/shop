@@ -4,12 +4,16 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
+- type: heading
+  label: Pages
 - type: document
   path: config/home_page.json
   label: Home page
 - type: document
   path: config/about_page.json
   label: About Page
+- type: heading
+  label: Content
 upload_dir: ''
 public_path: https://simonr.s3.eu-west-2.amazonaws.com
 front_matter_path: ''
