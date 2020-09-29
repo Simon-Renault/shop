@@ -14,6 +14,13 @@ sections:
   label: About Page
 - type: heading
   label: Content
+- type: directory
+  path: config/drawings
+  label: drawings
+  create: all
+  match: "**/*"
+  templates:
+  - drawing
 upload_dir: ''
 public_path: https://simonr.s3.eu-west-2.amazonaws.com
 front_matter_path: ''
