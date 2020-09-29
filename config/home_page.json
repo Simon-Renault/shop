@@ -30,6 +30,13 @@
       "sizing": "VERTICAL",
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/flying.jpg",
       "is_interactive": false
+    },
+    {
+      "template": "home_page_quote",
+      "quote": "<p>Pen, paper ...</p><p>and a lot of patience</p>",
+      "has_link": false,
+      "link": "",
+      "link_title": ""
     }
   ]
 }
