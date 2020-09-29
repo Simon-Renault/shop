@@ -47,6 +47,28 @@
       "sizing": "CLASSIC",
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/farm_1.jpg",
       "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "title": "High rise",
+      "sizing": "VERTICAL",
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/tower.jpg",
+      "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "sizing": [
+
+      ],
+      "drawing_link": [
+
+      ],
+      "cover_image": "",
+      "title": "",
+      "is_interactive": false
     }
   ]
 }
