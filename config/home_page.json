@@ -1,3 +1,15 @@
 {
-  "intro": "Home page intro"
+  "intro": "Home page intro",
+  "grid_config": [
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/crazy_city.jpg",
+      "sizing": "SQUARE",
+      "title": "Polis",
+      "is_interactive": false
+    }
+  ]
 }
