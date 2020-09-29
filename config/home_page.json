@@ -67,6 +67,13 @@
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/tower2.jpg",
       "title": "High rise",
       "is_interactive": false
+    },
+    {
+      "template": "home_page_quote",
+      "quote": "<p>A subtle mixing of order and chaos</p>",
+      "has_link": false,
+      "link": "",
+      "link_title": ""
     }
   ]
 }
