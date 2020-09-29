@@ -12,3 +12,5 @@ fields:
   config:
     required: false
   label: shopify referance
+pages:
+- config/drawings/drawing1.md
