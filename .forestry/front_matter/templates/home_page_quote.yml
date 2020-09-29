@@ -2,6 +2,15 @@
 label: home_page_quote
 hide_body: true
 fields:
+- name: quote
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: true
+    schema:
+      format: html-blocks
+  label: quote
 - name: has_link
   type: boolean
   label: has link
@@ -21,12 +30,3 @@ fields:
   showOnly:
     field: has_link
     value: true
-- name: quote
-  type: textarea
-  default: ''
-  config:
-    required: false
-    wysiwyg: true
-    schema:
-      format: html-blocks
-  label: quote
