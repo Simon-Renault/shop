@@ -13,6 +13,22 @@ fields:
     required: false
   label: title
   description: Optional
+- name: sizing
+  type: select
+  default: []
+  config:
+    required: false
+    options:
+    - SQUARE
+    - HORIZONTAL
+    - VERTICAL
+    - CLASSIC
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: sizing
 - name: is_interactive
   type: boolean
   label: Is interactive
