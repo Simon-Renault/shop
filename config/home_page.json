@@ -20,6 +20,16 @@
       "title": "Farm of the wind",
       "sizing": "CLASSIC",
       "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "title": "Sky city",
+      "sizing": "VERTICAL",
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/flying.jpg",
+      "is_interactive": false
     }
   ]
 }
