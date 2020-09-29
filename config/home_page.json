@@ -60,14 +60,12 @@
     },
     {
       "template": "home-page-tile",
-      "sizing": [
-
-      ],
+      "sizing": "CLASSIC",
       "drawing_link": [
 
       ],
-      "cover_image": "",
-      "title": "",
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/tower2.jpg",
+      "title": "High rise",
       "is_interactive": false
     }
   ]
