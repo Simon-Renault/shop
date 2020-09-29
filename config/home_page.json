@@ -37,6 +37,16 @@
       "has_link": false,
       "link": "",
       "link_title": ""
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "title": "Farm of the wind",
+      "sizing": "CLASSIC",
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/farm_1.jpg",
+      "is_interactive": false
     }
   ]
 }
