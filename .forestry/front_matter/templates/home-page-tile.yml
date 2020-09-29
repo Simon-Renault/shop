@@ -1,6 +1,7 @@
 ---
-label: home page tile
+label: home_page_drawing_tile
 hide_body: true
+display_field: title
 fields:
 - name: cover_image
   type: file
