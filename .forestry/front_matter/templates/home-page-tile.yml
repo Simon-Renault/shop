@@ -1,4 +1,33 @@
 ---
 label: home page tile
 hide_body: true
-fields: []
+fields:
+- name: cover_image
+  type: file
+  config:
+    maxSize: 64
+  label: cover image
+- name: title
+  type: text
+  config:
+    required: false
+  label: title
+  description: Optional
+- name: is_interactive
+  type: boolean
+  label: Is interactive
+- name: drawing_link
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: pages
+      section: drawings
+      file: 
+      path: 
+  showOnly:
+    field: is_interactive
+    value: true
+  label: drawing link
