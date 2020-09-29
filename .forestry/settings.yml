@@ -7,15 +7,13 @@ sections:
 - type: document
   path: config/home_page
   label: Home page
-  match: "**/*"
 - type: document
   path: config/about_age
   label: About Page
-  match: "**/*"
-upload_dir: uploads
-public_path: "/uploads"
+upload_dir: ''
+public_path: https://simonr.s3.eu-west-2.amazonaws.com
 front_matter_path: ''
-use_front_matter_path: false
+use_front_matter_path: 
 file_template: ":filename:"
 build:
   install_dependencies_command: npm install
