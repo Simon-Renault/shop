@@ -1,4 +1,37 @@
 ---
 label: home_page_quote
 hide_body: true
-fields: []
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: title
+- name: subtext
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: subtext
+- name: has_link
+  type: boolean
+  label: has link
+- name: link
+  type: text
+  config:
+    required: false
+  label: link
+  showOnly:
+    field: has_link
+    value: true
+- name: link_title
+  type: text
+  config:
+    required: false
+  label: link title
+  showOnly:
+    field: has_link
+    value: true
