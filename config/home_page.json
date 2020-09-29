@@ -10,6 +10,16 @@
       "sizing": "SQUARE",
       "title": "Polis",
       "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/farm.jpg",
+      "title": "Farm of the wind",
+      "sizing": "CLASSIC",
+      "is_interactive": false
     }
   ]
 }
