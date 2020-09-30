@@ -122,6 +122,16 @@
       "sizing": "VERTICAL",
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/light.jpg",
       "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "title": "Polis",
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/crazy_city_detail.jpg",
+      "sizing": "SQUARE",
+      "is_interactive": false
     }
   ]
 }
