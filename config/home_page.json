@@ -152,6 +152,13 @@
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/coffe_high.jpg",
       "title": "Coffee shop",
       "is_interactive": false
+    },
+    {
+      "template": "home_page_quote",
+      "quote": "<p>Details not only draw attention, they spark imagination</p>",
+      "has_link": false,
+      "link": "",
+      "link_title": ""
     }
   ]
 }
