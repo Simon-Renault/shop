@@ -112,6 +112,16 @@
       "title": "Tree city",
       "sizing": "CLASSIC",
       "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "title": "Light ray",
+      "sizing": "VERTICAL",
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/light.jpg",
+      "is_interactive": false
     }
   ]
 }
