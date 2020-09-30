@@ -102,6 +102,16 @@
       "title": "Bridge",
       "sizing": "CLASSIC",
       "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/tree.jpg",
+      "title": "Tree city",
+      "sizing": "CLASSIC",
+      "is_interactive": false
     }
   ]
 }
