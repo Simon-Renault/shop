@@ -52,7 +52,7 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Come, shop!'
+    title: 'Shop'
   },
   computed: {
     collection () { return this.$page.allShopifyCollection.edges.length && this.$page.allShopifyCollection.edges[ 0 ].node },

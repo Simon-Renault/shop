@@ -53,4 +53,19 @@ export default function (Vue, { appOptions }) {
 
   // Create Vuex store
   appOptions.store = Store
+
+
+  // Add the different metas
+  head.meta.push({
+    name: 'keywords',
+    content: 'Drawing fine-art art illustration city detailes detailed precise'
+  })
+
+  head.meta.push({
+    name: 'description',
+    content: 'The portfolio and shop of the french illustrator Simon Renault'
+  })
 }
+
+
+

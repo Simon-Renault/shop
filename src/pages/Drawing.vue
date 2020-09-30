@@ -12,7 +12,9 @@
 
 <script>
 export default {
-  
+   metaInfo: {
+    title: 'Drawings'
+  },
 }
 </script>
 
