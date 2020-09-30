@@ -155,7 +155,7 @@
     },
     {
       "template": "home_page_quote",
-      "quote": "<p>Details not only draw attention, they spark imagination</p>",
+      "quote": "<p>Details not only draw attention, </p><p>they spark imagination</p>",
       "has_link": false,
       "link": "",
       "link_title": ""
