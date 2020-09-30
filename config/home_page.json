@@ -159,6 +159,28 @@
       "has_link": false,
       "link": "",
       "link_title": ""
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/elephant_detail.jpeg",
+      "sizing": "VERTICAL",
+      "title": "Sleeping giant",
+      "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "sizing": [
+
+      ],
+      "drawing_link": [
+
+      ],
+      "cover_image": "",
+      "title": "",
+      "is_interactive": false
     }
   ]
 }
