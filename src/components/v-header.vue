@@ -1,5 +1,5 @@
 <template>
-    <header class="header" :class="type">
+    <header class="header" >
 
       <div class="header__inner">
 
@@ -7,6 +7,10 @@
           <div class="logo"></div>
           <h1 class="title">Simon Renault</h1>
         </g-link>
+
+        <div class="burger">
+          <menu-icon size="1.2x" class="custom-class"></menu-icon>
+        </div>
 
         <div class="nav">
           <nav>
@@ -28,15 +32,17 @@
 
 <script>
 import vCartIconLink from '@/components/v-cart-icon-link.vue'
+import { MenuIcon } from 'vue-feather-icons'
 
 export default {
   props : ["type"],
   components : {
-    vCartIconLink
+    vCartIconLink,
+    MenuIcon
   },
   data() {
     return {
-
+     
     }
   }
 }
@@ -44,6 +50,26 @@ export default {
 
 
 <style lang="scss" >
+
+.burger{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:35px;
+  padding: 0 10px;
+  border-radius: 3px;
+   &:hover{
+    
+      background: var(--light-grey);
+    
+  }
+  @media screen and (min-width: 900px) {
+     display: none;
+  }
+}
+
+
+
 .link {
   color: var(--black);
   position: relative;
@@ -103,14 +129,23 @@ export default {
 }
 
 .header{
+    //position: fixed;
     top:0;
+    left:0;
+    right:0;
     z-index: 2;
+    background: white;
+
+    
     &__inner{
       margin: auto;
       display: flex;
       align-items: center;
       max-width: 1430px;
-      padding: 40px 70px 15px;
+      padding: 20px 20px 0px;
+      @media screen and (min-width: 900px) {
+        padding: 40px 70px 15px;
+      }
     }
 
     .hero{
@@ -167,6 +202,10 @@ export default {
 
 .nav {
     height: 35px;
+    display: none;
+    @media screen and (min-width: 900px) {
+      display: flex;
+    }
     nav{
       display: flex;
       justify-content: center;

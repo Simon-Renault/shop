@@ -2,7 +2,7 @@
    <g-link class="link" to="/cart">
         <span>
             <shopping-cart-icon size="1x" class="custom-class"></shopping-cart-icon>
-            <div class="indicator">{{ cart.length }}</div>
+            <div class="indicator" >{{ cart.length }}</div>
         </span>
     </g-link>
 </template>
@@ -41,6 +41,7 @@ export default {
 
   &:hover,&.active--exact{
     .indicator{
+      color: black;
       background: white;
     }
   }
@@ -48,12 +49,14 @@ export default {
 
 .indicator{
   --size : 20px;
+  --geist-green : #a4f7e5;
+  --geist-blue : #c9f2f6;
   top: 10%;
   right: 10%;
   display: block;
   padding: 0 6px 0 5px;
   min-width: var(--size);
-  background:#c9f2f6;
+  background:var(--geist-blue);
   border-radius: var(--size);
   font-size: 12px;
   text-align: center;

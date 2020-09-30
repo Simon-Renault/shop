@@ -100,7 +100,7 @@
             <p>To checkout, add some items to cart.</p>
             <br>
             <g-link
-              to="/"
+              to="/shop"
               class="button is-primary is-outlined">
               Browse
             </g-link>
