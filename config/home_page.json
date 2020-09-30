@@ -199,6 +199,16 @@
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/photo.jpg",
       "title": "In the box",
       "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/apartment.jpeg",
+      "sizing": "HORIZONTAL",
+      "title": "The stack",
+      "is_interactive": false
     }
   ]
 }
