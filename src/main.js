@@ -24,7 +24,7 @@ import 'typeface-prata'
 import vImageLoader from '~/components/v-image-loader.vue'
 import vCenteredContainer from '~/components/v-centered-container.vue'
 
-export default function (Vue, { appOptions }) {
+export default function (Vue, { head,appOptions }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component("v-image-loader", vImageLoader);

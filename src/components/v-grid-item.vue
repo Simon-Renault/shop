@@ -12,6 +12,7 @@
                 <span class="subtitle">Category</span>
             </div>
         </div>
+
     </g-link>
         
 </template>
@@ -19,7 +20,6 @@
 <script>
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 
 export default {
     props : {
@@ -49,7 +49,6 @@ export default {
             once : true,
             onToggle: self =>  this.isVisible = true 
         })
-
     }
 }
 </script>
