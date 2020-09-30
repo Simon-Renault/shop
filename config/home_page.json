@@ -132,6 +132,28 @@
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/crazy_city_detail.jpg",
       "sizing": "SQUARE",
       "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "title": "High rise",
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/tower.jpg",
+      "sizing": "CLASSIC",
+      "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "sizing": [
+
+      ],
+      "drawing_link": [
+
+      ],
+      "cover_image": "",
+      "title": "",
+      "is_interactive": false
     }
   ]
 }
