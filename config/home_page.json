@@ -82,6 +82,16 @@
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/coffe_shop.jpg",
       "sizing": "VERTICAL",
       "is_interactive": false
+    },
+    {
+      "template": "home-page-tile",
+      "drawing_link": [
+
+      ],
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/me.jpeg",
+      "sizing": "SQUARE",
+      "title": "",
+      "is_interactive": false
     }
   ]
 }
