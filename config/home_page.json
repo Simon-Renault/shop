@@ -172,14 +172,12 @@
     },
     {
       "template": "home-page-tile",
-      "sizing": [
-
-      ],
+      "sizing": "CLASSIC",
       "drawing_link": [
 
       ],
-      "cover_image": "",
-      "title": "",
+      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/top.jpeg",
+      "title": "Polis",
       "is_interactive": false
     }
   ]
