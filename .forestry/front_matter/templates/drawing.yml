@@ -8,11 +8,22 @@ fields:
   config:
     required: false
   label: name
+- name: is_for_sale
+  type: boolean
+  label: is for sale
 - name: shopify_referance
   type: text
   config:
     required: false
   label: shopify referance
+  showOnly:
+    field: is_for_sale
+    value: true
+- name: cover
+  type: file
+  config:
+    maxSize: 64
+  label: cover
 pages:
 - config/drawings/drawing1.md
 - config/drawings/drawing_2.md
