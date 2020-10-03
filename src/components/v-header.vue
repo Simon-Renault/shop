@@ -8,19 +8,14 @@
           <h1 class="title">Simon Renault</h1>
         </g-link>
 
-        <div class="burger">
+        <div class="burger" @click="isNavVisible = !isNavVisible">
           <menu-icon size="1.2x" class="custom-class"></menu-icon>
         </div>
 
-        <div class="nav">
+        <div class="nav" :class="{isNavVisible:isNavVisible}">
           <nav>
 
-            <g-link class="link" to="/"><span>Home</span></g-link>
-            <g-link class="link" to="/drawing"><span>Drawing</span></g-link>
-            <g-link class="link" to="/shop"><span>Shop</span></g-link>
-            <g-link class="link" to="/about"><span>About</span></g-link>
-            <hr class="separator"/>
-            <v-cart-icon-link/>
+            <slot/>
 
           </nav>
         </div>
@@ -31,18 +26,17 @@
 </template>
 
 <script>
-import vCartIconLink from '@/components/v-cart-icon-link.vue'
+
 import { MenuIcon } from 'vue-feather-icons'
 
 export default {
   props : ["type"],
   components : {
-    vCartIconLink,
     MenuIcon
   },
   data() {
     return {
-     
+      isNavVisible : false
     }
   }
 }
@@ -63,7 +57,7 @@ export default {
       background: var(--light-grey);
     
   }
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 800px) {
      display: none;
   }
 }
@@ -114,37 +108,36 @@ export default {
   }
 }
   
-</style>
-
-
-
-<style lang="scss">
-
-.fixed{
-  position: fixed;
-  background: white;
-  width: 100vw;
-  left:0;
-  right:0;
-}
 
 .header{
-    //position: fixed;
+    height: var(--header-height);
+    position: fixed;
     top:0;
     left:0;
     right:0;
     z-index: 2;
     background: white;
+    transform: translate(0,0%);
+    transition: all .5s ease;
+    border-bottom: 1px solid var(--light-grey);
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+    &.sticked{
+      transform: translate(0,-100%);
+    }
+
 
     
     &__inner{
       margin: auto;
       display: flex;
       align-items: center;
+      width: 100%;
       max-width: 1430px;
-      padding: 20px 20px 0px;
+      padding: 0 20px 0;
       @media screen and (min-width: 900px) {
-        padding: 40px 70px 15px;
+        padding: 20px 70px 20px;
       }
     }
 
@@ -203,7 +196,7 @@ export default {
 .nav {
     height: 35px;
     display: none;
-    @media screen and (min-width: 900px) {
+    @media screen and (min-width: 800px) {
       display: flex;
     }
     nav{

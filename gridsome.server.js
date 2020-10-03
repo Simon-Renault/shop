@@ -37,6 +37,8 @@ module.exports = async (api) => {
             fields: {
                 id: "ID!",
                 name: "String",
+                isForSale : "String",
+                cover : "String",
                 content: "String!",
                 shopify_referance: "String!",
             }
@@ -57,10 +59,12 @@ module.exports = async (api) => {
         drawingJson.map(drawing => {
 
             const matchingProduct = ShopifyProduct.find(p => p.handle === drawing.shopify_referance)
-
+            console.log(drawing)
             DrawingCollection.addNode({
                 name : drawing.name,
-                content : drawing.content,
+                isForSale : drawing.is_for_sale,
+                cover : drawing.cover,
+                content : drawing.__content,
                 product : matchingProduct ? actions.createReference(matchingProduct) : ''
             })
         })

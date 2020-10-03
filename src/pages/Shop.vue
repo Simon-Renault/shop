@@ -1,89 +1,80 @@
 <template>
   <Layout>
     <v-centered-container>
-      <div class="container has-text-centered">
-
-        <div class="columns is-multiline">
-          <div
-            v-for="({ node: product }) in featuredProducts"
-            :key="product.id"
-            class="column is-4">
-            <div class="card">
-              <div class="card-image">
-                <figure class="image is-4by3">
-                  <img
-                    :src="product.images[0].src"
-                    :alt="product.images[0].altText || product.title">
-                </figure>
-              </div>
-              <div class="card-content has-text-left">
-                <div class="media">
-                  <div class="media-content">
-                    <p class="title is-4 is-family-secondary">
-                      {{ product.title }}
-                    </p>
-                    <p class="subtitle is-6">
-                      {{ product.priceRange.minVariantPrice.amount }}
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  v-html="product.descriptionHtml"
-                  class="content" />
-                <div class="field is-grouped is-grouped-right">
-                  <div class="control">
-                    <g-link
-                      :to="`product/${product.handle}`"
-                      class="button is-primary is-outlined">
-                      View Product
-                    </g-link>
-                  </div>
-                </div>
+     
+      <div
+        v-for="({node:drawing},index) in drawings"
+        :key="index + '-drawing'"
+        class="column is-4">
+        <div class="card">
+          {{drawing.name}}
+            <div class="field is-grouped is-grouped-right">
+              <div class="control">
+                <g-link
+                  :to="`shop/product/${drawing.id}`"
+                  class="button is-primary is-outlined">
+                  View Product
+                </g-link>
               </div>
             </div>
-          </div>
+
         </div>
       </div>
+       
     </v-centered-container>
+    <Pager :info="$page.allDrawings.pageInfo"/>
   </Layout>
 </template>
 
 <script>
+import { Pager } from 'gridsome'
+
 export default {
+  components: {
+    Pager
+  },
   metaInfo: {
     title: 'Shop'
   },
   computed: {
-    collection () { return this.$page.allShopifyCollection.edges.length && this.$page.allShopifyCollection.edges[ 0 ].node },
-    featuredProducts () { return this.$page.allShopifyProduct.edges }
+    drawings () { return this.$page.allDrawings.edges},
+    first () { return this.$page.allDrawings.edges[0]}
   }
 }
 </script>
 
 <page-query>
-query ShopifyProducts {
-  allShopifyProduct (limit: 6) {
-    edges {
-      node {
+query($page: Int){
+  allDrawings( perPage: 6 , page: $page , filter : { isForSale : {eq : true}})  @paginate {
+    pageInfo {
+      totalPages
+      currentPage
+    }
+    edges{
+      node{
         id
-        title
-        handle
-        descriptionHtml
-        priceRange {
-          minVariantPrice {
-            amount(format: true)
-          }
-        }
-        images (limit: 1) {
+       	name
+        content
+        cover
+        isForSale
+        product{
           id
-          altText
-          src: transformedSrc (maxWidth: 400, maxHeight: 300, crop: CENTER)
+          availableForSale
+          priceRange{
+            minVariantPrice{
+              amount
+              currencyCode
+            }
+            maxVariantPrice{
+              amount
+              currencyCode
+            }
+          }
         }
       }
     }
   }
-}
+} 
 </page-query>
 
 <style lang="scss" scoped>

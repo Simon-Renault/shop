@@ -87,15 +87,21 @@ export default {
         right:0;
     }
     &:hover {
-        .content{
-            filter : blur(20px);
-        }
         .hover-content{
             opacity: 1;
             @supports (backdrop-filter: blur()) {
-                backdrop-filter: blur(20px);
+                backdrop-filter: blur(18px);
             }
         }
+    }
+    @media screen and (max-width: 900px) {
+        .hover-content{
+            opacity: 1;
+            @supports (backdrop-filter: blur()) {
+                backdrop-filter: blur(18px);
+            }
+        }
+        
     }
     .hover-content{
         opacity: 0;
@@ -126,19 +132,19 @@ export default {
     }
     &.HORIZONTAL{
         padding-bottom: 50%;
-        @media screen and (min-width: 900px) {
+        @media screen and (min-width: 700px) {
             grid-column : span 2;
         }
     }
     &.VERTICAL{
         padding-bottom: 200%;
-        @media screen and (min-width: 900px) {
+        @media screen and (min-width: 700px) {
              grid-row : span 2;
         }
     }
     &.SQUARE{
         padding-bottom: 100%;
-        @media screen and (min-width: 900px) {
+        @media screen and (min-width: 700px) {
             grid-row : span 2;
             grid-column : span 2;
         }

@@ -1,10 +1,10 @@
 module.exports = {
   siteName: 'Simon Renault - Drawing',
   templates: {
-    ShopifyProduct: [
+    Drawings: [
       {
-        path: '/product/:handle',
-        component: './src/templates/Product.vue'
+        path: '/shop/product/:id',
+        component: './src/templates/Drawing.vue'
       }
     ],
     ShopifyCollection: [
