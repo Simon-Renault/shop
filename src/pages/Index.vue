@@ -7,7 +7,7 @@
 
         <template v-for="(item,index) in grid_items" >
 
-          <v-grid-item  v-if="item.template==='home-page-tile'" 
+          <v-grid-item  class="special" v-if="item.template==='home-page-tile'" 
             :item="item" 
             :key="'grid-item'+index"/>
 

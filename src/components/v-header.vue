@@ -21,7 +21,7 @@
           <nav>
 
               <g-link @click="hideNav" class="link" to="/"><span>Home</span></g-link>
-              <!-- <g-link class="link" to="/drawing"><span>Drawing</span></g-link> -->
+              <g-link class="link" to="/drawing"><span>Drawing</span></g-link>
               <g-link @click="hideNav" class="link" to="/blog"><span>Blog</span></g-link>
               <g-link @click="hideNav" class="link" to="/shop"><span>Shop</span></g-link>
               <g-link @click="hideNav" class="link" to="/about"><span>About</span></g-link>

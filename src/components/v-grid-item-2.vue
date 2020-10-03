@@ -1,6 +1,6 @@
 <template>
-
-    <g-link class="v-grid-item hidden "  to="/" :class="item.sizing"  :style="{'animation-delay':delay+'ms'}" >
+ 
+    <g-link class="v-grid-item hidden cool"  to="/" :class="item.sizing"  :style="{'animation-delay':delay+'ms'}" >
 
         <v-image-loader class="v-grid-item__img" :shouldLoad="isVisible" :src="item.cover_image" :alt="item.title"/>
 
@@ -14,7 +14,7 @@
         </div>
 
     </g-link>
-
+        
 </template>
 
 <script>
@@ -73,33 +73,47 @@ export default {
     cursor: pointer;
     position: relative;
     border-radius: 2px;
-   
-    
-    figure{
-        padding-bottom: 100%;
-    }
+    background: var(--light-grey);
+    padding-bottom: 100%;
     opacity: 0;
     &.visible{
        animation: appear .7s ease-out 0s 1 forwards ;
     }
    
-    img{
+    & &__img{
         position: absolute;
         top:0;
         bottom:0;
         left:0;
         right:0;
     }
-   
+    &:hover {
+        .hover-content{
+            opacity: 1;
+            @supports (backdrop-filter: blur()) {
+                backdrop-filter: blur(18px);
+            }
+        }
+    }
+    @media screen and (max-width: 900px) {
+        .hover-content{
+            opacity: 1;
+            @supports (backdrop-filter: blur()) {
+                backdrop-filter: blur(18px);
+            }
+        }
+        
+    }
 
     .hover-content{
-        opacity: 1;
+        opacity: 0;
+        position: absolute;
         top:0;
         bottom:0;
         left:0;
         right:0;
-        padding: 10px 15px 30px;
-        //background: rgba(255,255,255,0.8);
+        padding: 40px;
+        background: rgba(255,255,255,0.8);
         transition: all .3s ease;
         display: flex;
         align-items: center;
@@ -118,65 +132,25 @@ export default {
             }
         }
     }
-    &.special{
-        padding-bottom: 100%;
-        .v-grid-item__img{
-            position: absolute;
-            top:0;
-            bottom:0;
-            left:0;
-            right:0;
-        }
-        &:hover {
-            .hover-content{
-                
-                opacity: 1;
-                @supports (backdrop-filter: blur()) {
-                    backdrop-filter: blur(18px);
-                }
-            }
-        }
-        @media screen and (max-width: 900px) {
-            .hover-content{
-                opacity: 1;
-                @supports (backdrop-filter: blur()) {
-                    backdrop-filter: blur(18px);
-                }
-            }
-            
-        }
-        .hover-content{
-            position: absolute;
-            top:0;
-            bottom:0;
-            left:0;
-            right:0;
-            padding: 40px;
-            opacity: 0;
-            background: rgba(255,255,255,0.8);
-        }
-        background: var(--light-grey);
-        &.HORIZONTAL{
-            padding-bottom: 50%;
-            @media screen and (min-width: 600px) {
-                grid-column : span 2;
-            }
-        }
-        &.VERTICAL{
-            padding-bottom: 200%;
-            @media screen and (min-width: 600px) {
-                grid-row : span 2;
-            }
-        }
-        &.SQUARE{
-            padding-bottom: 100%;
-            @media screen and (min-width: 600px) {
-                grid-row : span 2;
-                grid-column : span 2;
-            }
+    &.HORIZONTAL{
+        padding-bottom: 50%;
+        @media screen and (min-width: 600px) {
+            grid-column : span 2;
         }
     }
-    // 
+    &.VERTICAL{
+        padding-bottom: 200%;
+        @media screen and (min-width: 600px) {
+             grid-row : span 2;
+        }
+    }
+    &.SQUARE{
+        padding-bottom: 100%;
+        @media screen and (min-width: 600px) {
+            grid-row : span 2;
+            grid-column : span 2;
+        }
+    }
 }
 
 </style>

@@ -1,88 +1,78 @@
 <template>
   <Layout>
-    <v-centered-container>
+
+    <v-centered-container class="project-grid">
 
       <div class="grid">
 
-        <g-link
-          v-for="({node:drawing},index) in drawings"
-          :key="index + '-drawing'"
-          :to="`shop/product/${drawing.id}`"
-          class="drawing">
-          <article>
-            <v-image-loader class="v-grid-item__img" :shouldLoad="true" :src="drawing.cover" :alt="drawing.title"/>
-            <h3>{{drawing.name}}</h3>
-          </article>
-         
-              
-        </g-link>
+        <template v-for="(item,index) in grid_items" >
+
+          <v-grid-item  v-if="item.template==='home-page-tile'" 
+            :item="item" 
+            :key="'grid-item'+index"/>
+
+
+        </template>
 
       </div>
-     
+
+      <div class="grid">
+
+        <template v-for="(item,index) in grid_items" >
+
+          <v-grid-item  v-if="item.template==='home-page-tile'" 
+            :item="item" 
+            :key="'grid-item'+index"/>
+
+
+        </template>
+
+      </div>
+
     </v-centered-container>
-    <Pager :info="$page.allDrawings.pageInfo"/>
+   
   </Layout>
 </template>
 
 <script>
-import { Pager } from 'gridsome'
+  import vGridItem from '@/components/v-grid-item.vue'
 
-export default {
-  components: {
-    Pager
-  },
-  metaInfo: {
-    title: 'Shop'
-  },
-  computed: {
-    drawings () { return this.$page.allDrawings.edges},
-    first () { return this.$page.allDrawings.edges[0]}
-  }
-}
-</script>
+  import homeConfig from '../../config/home_page.json'
 
-<page-query>
-query($page: Int){
-  allDrawings( perPage: 6 , page: $page )  @paginate {
-    pageInfo {
-      totalPages
-      currentPage
-    }
-    edges{
-      node{
-        id
-       	name
-        content
-        cover
-        isForSale
-        product{
-          id
-          availableForSale
-          priceRange{
-            minVariantPrice{
-              amount
-              currencyCode
-            }
-            maxVariantPrice{
-              amount
-              currencyCode
-            }
-          }
-        }
+  export default {
+    components: {
+      'v-grid-item': vGridItem
+    },
+    data(){
+      return{
+        grid_items : homeConfig.grid_config
       }
     }
   }
-} 
-</page-query>
-
-<style lang="scss" scoped>
+</script>
 
 
+<style lang="scss" >
 
-.grid{
+
+
+.grid {
+  margin: 0 0 100px 0;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
   grid-gap: 20px;
-}
+  grid-auto-flow: row dense;
+  grid-template-columns: repeat(1, 1fr);
 
+  @media screen and (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 700px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: 1130px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 </style>
