@@ -282,6 +282,12 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
+        .separator{
+          display: flex;
+          height:1px;
+          width: 95%;
+          margin: 5px 20px;
+        }
         .link{
           width:100%;
           margin: 5px 0;
