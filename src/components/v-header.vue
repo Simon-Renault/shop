@@ -80,10 +80,10 @@ export default {
   height:35px;
   padding: 0 10px;
   border-radius: 3px;
-   &:hover{
-    
+  cursor: pointer;
+  &:hover{
+      //box-shadow: 0 0 0 2px var(--light-grey);
       background: var(--light-grey);
-    
   }
   @media screen and (min-width: 800px) {
      display: none;
@@ -286,7 +286,8 @@ export default {
           display: flex;
           height:1px;
           width: 95%;
-          margin: 5px 20px;
+          margin: auto 20px;
+          flex-shrink: 0;
         }
         .link{
           width:100%;

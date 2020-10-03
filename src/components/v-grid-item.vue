@@ -132,19 +132,19 @@ export default {
     }
     &.HORIZONTAL{
         padding-bottom: 50%;
-        @media screen and (min-width: 700px) {
+        @media screen and (min-width: 600px) {
             grid-column : span 2;
         }
     }
     &.VERTICAL{
         padding-bottom: 200%;
-        @media screen and (min-width: 700px) {
+        @media screen and (min-width: 600px) {
              grid-row : span 2;
         }
     }
     &.SQUARE{
         padding-bottom: 100%;
-        @media screen and (min-width: 700px) {
+        @media screen and (min-width: 600px) {
             grid-row : span 2;
             grid-column : span 2;
         }
