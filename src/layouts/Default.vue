@@ -2,13 +2,7 @@
   <div class="layout">
     <notifications/>
       <Header :class="{sticked:isOpen }">
-        <g-link class="link" to="/"><span>Home</span></g-link>
-        <!-- <g-link class="link" to="/drawing"><span>Drawing</span></g-link> -->
-        <g-link class="link" to="/blog"><span>Blog</span></g-link>
-        <g-link class="link" to="/shop"><span>Shop</span></g-link>
-        <g-link class="link" to="/about"><span>About</span></g-link>
-        <hr class="separator"/>
-        <CartLink/>
+       
       </Header>
     <slot/>
   </div>

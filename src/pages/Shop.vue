@@ -1,25 +1,27 @@
 <template>
   <Layout>
     <v-centered-container>
-     
-      <div
-        v-for="({node:drawing},index) in drawings"
-        :key="index + '-drawing'"
-        class="column is-4">
-        <div class="card">
-          {{drawing.name}}
-            <div class="field is-grouped is-grouped-right">
-              <div class="control">
-                <g-link
-                  :to="`shop/product/${drawing.id}`"
-                  class="button is-primary is-outlined">
-                  View Product
-                </g-link>
-              </div>
-            </div>
 
-        </div>
+
+
+       <div class="grid">
+
+        <g-link
+          v-for="({node:drawing},index) in drawings"
+          :key="index + '-drawing'"
+          :to="`shop/product/${drawing.id}`"
+          class="drawing">
+          <article>
+            <v-image-loader class="v-grid-item__img" :shouldLoad="true" src="./imgs/frame_mock_vertical.png" :alt="drawing.title"/>
+            <h3>{{drawing.name}}</h3>
+          </article>
+         
+              
+        </g-link>
+
       </div>
+     
+   
        
     </v-centered-container>
     <Pager :info="$page.allDrawings.pageInfo"/>
