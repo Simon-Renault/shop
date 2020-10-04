@@ -7,7 +7,7 @@
           <figure class="img">
                <v-image-loader class="v-grid-item__img" :shouldLoad="true" :src="drawing.cover" :alt="drawing.name"/>
           </figure>
-          <div class="list">
+          <div class="list" v-if="drawing.product">
              <div
               v-for="(image) in drawing.product.images"
               :key="image.id"
@@ -23,9 +23,8 @@
         <div class="side">
           
 
-          <!--  -->
 
-          <div class="column is-two-fifths">
+          <div class="column is-two-fifths" v-if="drawing.product">
             <h3 git>
               {{ drawing.name }}
             </h3>
@@ -90,7 +89,7 @@
 
 
 
-          <!--  -->
+   
 
         
       </div>
@@ -132,6 +131,9 @@ export default {
   mounted () {
     const [firstVariant] = this.drawing.product.variants
     this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
+  },
+  created(){
+     console.log(this.$page.drawings.map(d => d.product))
   },
   methods: {
     async addToCart () {
