@@ -26,7 +26,7 @@
           <!--  -->
 
           <div class="column is-two-fifths">
-            <h3 >
+            <h3 git>
               {{ drawing.name }}
             </h3>
             <h5
