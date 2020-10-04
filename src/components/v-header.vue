@@ -1,5 +1,5 @@
 <template>
-    <header class="header" >
+    <header class="header" :class="{sticked:isOpen }" >
 
       <div class="header__inner">
 
@@ -20,8 +20,7 @@
         <div class="nav" @click="hideNav" :class="{show:isNavVisible}">
           <nav>
 
-              <g-link @click="hideNav" class="link" to="/"><span>Home</span></g-link>
-              <g-link class="link" to="/drawing"><span>Drawing</span></g-link>
+              <g-link @click="hideNav" class="link" to="/"><span>Gallery</span></g-link>
               <g-link @click="hideNav" class="link" to="/blog"><span>Blog</span></g-link>
               <g-link @click="hideNav" class="link" to="/shop"><span>Shop</span></g-link>
               <g-link @click="hideNav" class="link" to="/about"><span>About</span></g-link>
@@ -40,6 +39,8 @@
 import CartLink from '@/components/v-cart-icon-link.vue'
 import { MenuIcon } from 'vue-feather-icons'
 import { XIcon } from 'vue-feather-icons'
+import gsap from 'gsap'
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
   props : ["type"],
@@ -50,7 +51,8 @@ export default {
   },
   data() {
     return {
-      isNavVisible : false
+      isNavVisible : false,
+      isOpen : false
     }
   },
   computed:{
@@ -66,6 +68,32 @@ export default {
       if(this.isNavVisible) document.getElementsByTagName('body')[0].style.overflow = 'hidden';
       if(!this.isNavVisible) document.getElementsByTagName('body')[0].style.overflow = 'visible';
     }
+  },
+  mounted(){
+      gsap.registerPlugin(ScrollTrigger)
+      const trigger =  ScrollTrigger.create({
+        id : "x1",
+        scrub: true,
+        onUpdate: self => {
+
+          if(window.scrollY > 100){
+
+            if(!this.isFixed) this.isFixed = true
+
+            if(self.getVelocity() >= 1 && !this.isOpen){
+              console.log("hide")
+              this.isOpen = true
+            }
+
+            if(self.getVelocity() <= -1 && this.isOpen){
+              console.log("show")
+              this.isOpen = false
+            }
+
+          }
+
+        }
+      });
   }
 }
 </script>

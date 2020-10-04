@@ -7,13 +7,14 @@
        <div class="grid">
 
         <g-link
-          v-for="({node:drawing},index) in drawings"
+          v-for="(i,index) in 66"
           :key="index + '-drawing'"
-          :to="`shop/product/${drawing.id}`"
+          :to="`shop/product/${i}`"
           class="drawing">
           <article>
-            <v-image-loader class="v-grid-item__img" :shouldLoad="true" src="./imgs/frame_mock_vertical.png" :alt="drawing.title"/>
-            <h3>{{drawing.name}}</h3>
+            <v-image-loader class="v-grid-item__img" :shouldLoad="true" src="./imgs/frame_mock_vertical.png" :alt="i"/>
+            <h3>Drawing name</h3>
+            <p>66£</p>
           </article>
          
               
@@ -80,5 +81,30 @@ query($page: Int){
 </page-query>
 
 <style lang="scss" scoped>
+
+
+
+.grid{
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.drawing{
+  img{
+    border-radius: 3px;
+  }
+  h3{
+    margin: 10px 5px 5px;
+    color: var(--black);
+    font-size: 20px;
+  }
+  p{
+    font-size: 14px;
+    margin: 5px 5px;
+    color: var(--black);
+    opacity: .5;
+  }
+}
+
 
 </style>

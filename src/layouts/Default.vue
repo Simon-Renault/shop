@@ -1,18 +1,14 @@
 <template>
   <div class="layout">
     <notifications/>
-      <Header :class="{sticked:isOpen }">
-       
-      </Header>
+    <Header/>
     <slot/>
   </div>
 </template>
 
 <script>
 import Header from '@/components/v-header'
-import CartLink from '@/components/v-cart-icon-link.vue'
-import gsap from 'gsap'
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 
 export default {
   data(){
@@ -23,33 +19,7 @@ export default {
   },
   components: { 
     Header ,
-    CartLink
   },
-  mounted(){
-
-    const trigger =  ScrollTrigger.create({
-      onUpdate: self => {
-
-        if(window.scrollY > 100){
-
-          if(!this.isFixed) this.isFixed = true
-
-          if(self.getVelocity() >= 1 && !this.isOpen){
-            console.log("hide")
-            this.isOpen = true
-          }
-
-          if(self.getVelocity() <= -1 && this.isOpen){
-            console.log("show")
-            this.isOpen = false
-          }
-
-        }
-
-      }
-    });
-
-  }
 }
 </script>
 
@@ -61,7 +31,5 @@ export default {
     padding: calc(var(--header-height) * 2) 0 0 0;
   }
 }
-
-
 
 </style>
