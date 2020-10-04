@@ -38,15 +38,15 @@ fields:
     value: true
 - name: drawing_link
   type: select
-  default: []
+  default: https://simonr.s3.eu-west-2.amazonaws.com/top.jpeg
   config:
     required: false
     options: []
     source:
-      type: documents
+      type: pages
       section: drawings
-      file: 
-      path: ''
+      file: config/drawings/drawing1.md
+      path: gallery
   showOnly:
     field: is_interactive
     value: true
