@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout class="pad-top">
 
 
     <v-centered-container>

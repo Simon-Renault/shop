@@ -1,5 +1,5 @@
 <template>
-  <Layout>
+  <Layout class="pad-top">
     <v-centered-container>
 
 
@@ -15,14 +15,17 @@
         </div>
 
         <div class="format">
-           <span>Filter
+           <span>
+             <span>
+               Filter
              <filter-icon size="1x" class="custom-class"></filter-icon>
+              </span> 
            </span>
            
         </div>
       </div>
 
-       <div class="grid">
+       <div class="grid1">
 
         <g-link
           v-for="(i,index) in 66"
@@ -110,7 +113,19 @@ query($page: Int){
 
 .format{
   margin-left: auto;
-  span{
+  @media screen and (max-width: 600px) {
+    margin-left: 0;
+    width: 100%;
+    margin: 20px 0 0;
+    & > span{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  &> span{
     box-shadow: 0 0 0 1px var(--light-grey);
   }
 }
@@ -120,6 +135,11 @@ query($page: Int){
 .controls{
   display: flex;
   margin: 0 0 50px;flex-wrap: wrap;
+  user-select: none;
+  @media screen and (max-width: 600px) {
+    align-items: center;
+    justify-content: center;
+  }
   span{
     cursor: pointer;
     position: relative;
@@ -143,9 +163,9 @@ query($page: Int){
     }
   }
 }
-.grid{
+.grid1{
   display:grid;
-  grid-auto-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-gap: 50px;
 }
 

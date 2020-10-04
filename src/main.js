@@ -24,7 +24,7 @@ import 'typeface-prata'
 import vImageLoader from '~/components/v-image-loader.vue'
 import vCenteredContainer from '~/components/v-centered-container.vue'
 
-export default function (Vue, { head,appOptions }) {
+export default function (Vue, { router,head,appOptions }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component("v-image-loader", vImageLoader);
@@ -33,6 +33,20 @@ export default function (Vue, { head,appOptions }) {
   Vue.use(Vuex)
   Vue.use(VueApollo)
   Vue.use(Notifications)
+
+  //configure the router
+  router.options.scrollBehavior = function(to, from , savedPosition) {
+    if (savedPosition) {
+      return  savedPosition;
+    }
+    if (to.hash) {
+      return {selector: to.hash};
+    }
+    if ((from.name == 'project' && to.name == 'project') || ((from.name == 'work' && to.name == 'project'))) {
+      return window.scrollHeight
+    }
+    return {x: 0, y: 0}
+  }
 
   // Create Apollo client
   const apolloClient = new ApolloClient({

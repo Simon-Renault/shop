@@ -26,9 +26,11 @@ export default {
 <style lang="scss">
 
 .layout{
-  padding: calc(var(--header-height) + 20px) 0 0 0;
-  @media screen and (min-width: 1130px) {
-    padding: calc(var(--header-height) * 2) 0 0 0;
+  &.pad-top{
+    padding: calc(var(--header-height) + 20px) 0 0 0;
+    @media screen and (min-width: 1130px) {
+      padding: calc(var(--header-height) * 2) 0 0 0;
+    }
   }
 }
 

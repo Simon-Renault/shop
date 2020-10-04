@@ -109,7 +109,7 @@ export default {
                 padding: 5px 0;
                 font-weight: 800;
                 font-size: 25px;
-                line-height: 1.5em;
+                line-height: 1.2em;
                 color: var(--black);
             }
             .subtitle{
