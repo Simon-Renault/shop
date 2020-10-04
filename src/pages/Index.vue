@@ -11,13 +11,10 @@
 
       <div class="grid">
 
-        <template v-for="(item,index) in grid_items" >
-
-          <v-grid-item  class="special" v-if="item.template==='home-page-tile'" 
+        <template v-for="(item,index) in homePageItems" >
+          <v-grid-item  class="special"  
             :item="item" 
             :key="'grid-item'+index"/>
-
-
         </template>
 
       </div>
@@ -30,9 +27,9 @@
 
       <div class="grid">
 
-        <template v-for="(item,index) in grid_items" >
+        <template v-for="(item,index) in homePageItems" >
 
-          <v-grid-item  v-if="item.template==='home-page-tile'" 
+          <v-grid-item  
             :item="item" 
             :key="'grid-item'+index"/>
 
@@ -46,18 +43,35 @@
   </Layout>
 </template>
 
+<page-query>
+query{
+  allHomePageFeaturedItem(sortBy:"index",order: ASC){
+      edges{
+        node{
+          id
+          index
+          cover_image
+          name
+          sizing
+          drawing_id
+        }
+      }
+  }
+}
+</page-query>
+
 <script>
   import vGridItem from '@/components/v-grid-item.vue'
 
-  import homeConfig from '../../config/home_page.json'
+
 
   export default {
     components: {
       'v-grid-item': vGridItem
     },
-    data(){
-      return{
-        grid_items : homeConfig.grid_config
+    computed : {
+      homePageItems (){
+        return this.$page.allHomePageFeaturedItem.edges.map(i => i.node)
       }
     }
   }
@@ -98,7 +112,7 @@
 .grid {
   margin: 0 0 100px 0;
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 30px;
   grid-auto-flow: row dense;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 

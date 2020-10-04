@@ -1,9 +1,12 @@
 <template>
-  <Layout>
+  <Layout class="pad-top">
+    <v-centered-container>
+      <div class="404-container">
 
+      </div>
 
-    <h1>404</h1>
-   
+      <h1>404</h1>
+   </v-centered-container>
   </Layout>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
-  <Layout>
-   <div class="hero-image"></div>
+  <Layout class="pad-top">
+  
    <v-centered-container>
-
+ <div class="hero-image"></div>
      <div class="grid">
         <div class="img-left"></div>
         <div v-html="description"></div>
@@ -29,7 +29,8 @@ export default {
 <style lang="scss" scoped>
 .hero-image{
   height: 50vh;
-  width: 100vw;
+  width: 100%;
+  border-radius: 3px;
   background: var(--light-grey);
 }
 .img-left{

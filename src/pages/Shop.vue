@@ -6,36 +6,19 @@
 
       <div class="featured"></div>
 
-      <div class="controls">
-        <div class="categories">
-          <span class="active">All</span>
-          <span>Originals</span>
-          <span>Prints</span>
-          <span>Postcards</span>
-        </div>
-
-        <div class="format">
-           <span>
-             <span>
-               Filter
-             <filter-icon size="1x" class="custom-class"></filter-icon>
-              </span> 
-           </span>
-           
-        </div>
-      </div>
+  
 
        <div class="grid1">
 
         <g-link
-          v-for="(i,index) in 66"
+          v-for="({node:drawing},index) in drawings"
           :key="index + '-drawing'"
-          :to="`shop/product/${i}`"
+          :to="`shop/product/${drawing.id}`"
           class="drawing">
           <article>
-            <v-image-loader class="v-grid-item__img" :shouldLoad="true" src="./imgs/frame_mock_vertical.png" :alt="i+''"/>
-            <h3>Drawing name</h3>
-            <p>66£</p>
+            <v-image-loader class="v-grid-item__img" :shouldLoad="true" :src="drawing.product.images[0].transformedSrc" alt="alt"/>
+            <h3>{{drawing.name}}</h3>
+            <p>{{drawing.product.priceRange.minVariantPrice.amount}}£ - {{drawing.product.priceRange.maxVariantPrice.amount}}£</p>
           </article>
          
               
@@ -53,6 +36,7 @@
 <script>
 import { Pager } from 'gridsome'
 import { FilterIcon } from 'vue-feather-icons'
+import slugify from "slugify"
 
 export default {
   components: {
@@ -62,7 +46,31 @@ export default {
   metaInfo: {
     title: 'Shop'
   },
+  methods : {
+    slugify(string){
+      return slugify(string,{
+        replacement: '-',  
+        remove: undefined, 
+        lower: true,      
+        strict: true    
+      })
+    }
+  },
   computed: {
+    variants (){ 
+      const variants = this.$page.allDrawings.edges.map(x => x.node.product.variants.map(v => v.selectedOptions.map(s => s))).flat(2)
+      const variantTypes = [...new Set(variants.map(v => v.name))]
+
+      const variantCombinations = variantTypes.map(vt => {
+        const _variants = variants.filter(v=> v.name === vt)
+          return {
+            name : vt,
+            possibleValues : [...new Set(_variants.map(v => v.value))]
+          }
+      })
+
+      return variantCombinations
+    },
     drawings () { return this.$page.allDrawings.edges},
     first () { return this.$page.allDrawings.edges[0]}
   }
@@ -86,6 +94,16 @@ query($page: Int){
         product{
           id
           availableForSale
+          images{
+            transformedSrc
+          }
+          variants{
+            id
+            selectedOptions{
+              name
+              value
+            }
+          }
           priceRange{
             minVariantPrice{
               amount
@@ -111,67 +129,21 @@ query($page: Int){
   margin: 0 0 100px;
 }
 
-.format{
-  margin-left: auto;
-  @media screen and (max-width: 600px) {
-    margin-left: 0;
-    width: 100%;
-    margin: 20px 0 0;
-    & > span{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      width: 100%;
-    }
-  }
-  &> span{
-    box-shadow: 0 0 0 1px var(--light-grey);
-  }
-}
-.categories{
-  flex-wrap: nowrap;
-}
-.controls{
-  display: flex;
-  margin: 0 0 50px;flex-wrap: wrap;
-  user-select: none;
-  @media screen and (max-width: 600px) {
-    align-items: center;
-    justify-content: center;
-  }
-  span{
-    cursor: pointer;
-    position: relative;
-    display: inline-flex;
-    vertical-align: top;
-    align-items: center;
-    padding: 5px 10px;
-    transition: all .3s ease;
-    line-height: 35px;
-    border-radius: 3px;
-    height: 35px;
-    margin: 0 5px;
-    svg{
-      margin: 0 0 0 7px;
-    }
-    &:first-child,&:last-child{
-      margin: 0 0;
-    }
-    &:hover,&.active{
-      background: var(--light-grey);
-    }
-  }
-}
+
 .grid1{
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 50px;
+  margin: 0 0 200px;
 }
 
 .drawing{
   img{
     border-radius: 3px;
+  }
+  transition: all .3s ease;
+  &:hover{
+    opacity: 0.6;
   }
   h3{
     margin: 10px 5px 5px;

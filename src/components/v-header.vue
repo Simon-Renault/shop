@@ -247,6 +247,9 @@ export default {
 
 .mobile-nav{
   display:flex;
+  @media screen and (min-width: 800px) {
+     display: none;
+  }
 }
 
 .nav {

@@ -1,17 +1,19 @@
 <template>
 
-    <g-link class="v-grid-item hidden "  to="/" :class="item.sizing"  :style="{'animation-delay':delay+'ms'}" >
+    <g-link class="v-grid-item hidden "  :to="`shop/product/${item.drawing_id}`" :class="item.sizing"  :style="{'animation-delay':delay+'ms'}" >
 
         <v-image-loader class="v-grid-item__img" :shouldLoad="isVisible" :src="item.cover_image" :alt="item.title"/>
 
         <div class="hover-content">
             <div class="inner">
                 <span class="title">
-                    {{item.title}}
+                    {{item.name}}
                 </span>
                 <span class="subtitle">Category</span>
             </div>
         </div>
+
+       
 
     </g-link>
 
