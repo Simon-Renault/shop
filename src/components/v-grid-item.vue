@@ -73,10 +73,10 @@ export default {
     cursor: pointer;
     position: relative;
     border-radius: 2px;
-   
-    
-    figure{
-        padding-bottom: 100%;
+    &:not(.special){
+        figure{
+            padding-bottom: 100%;
+        }
     }
     opacity: 0;
     &.visible{
@@ -146,14 +146,17 @@ export default {
             
         }
         .hover-content{
+            opacity: 0;
             position: absolute;
             top:0;
             bottom:0;
             left:0;
             right:0;
             padding: 40px;
-            opacity: 0;
             background: rgba(255,255,255,0.8);
+            transition: all .3s ease;
+            display: flex;
+            align-items: center;
         }
         background: var(--light-grey);
         &.HORIZONTAL{
