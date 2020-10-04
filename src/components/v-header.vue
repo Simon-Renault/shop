@@ -78,7 +78,6 @@ export default {
 
           if(window.scrollY > 100){
 
-            if(!this.isFixed) this.isFixed = true
 
             if(self.getVelocity() >= 1 && !this.isOpen){
               console.log("hide")

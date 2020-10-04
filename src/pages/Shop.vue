@@ -4,6 +4,24 @@
 
 
 
+      <div class="featured"></div>
+
+      <div class="controls">
+        <div class="categories">
+          <span class="active">All</span>
+          <span>Originals</span>
+          <span>Prints</span>
+          <span>Postcards</span>
+        </div>
+
+        <div class="format">
+           <span>Filter
+             <filter-icon size="1x" class="custom-class"></filter-icon>
+           </span>
+           
+        </div>
+      </div>
+
        <div class="grid">
 
         <g-link
@@ -12,7 +30,7 @@
           :to="`shop/product/${i}`"
           class="drawing">
           <article>
-            <v-image-loader class="v-grid-item__img" :shouldLoad="true" src="./imgs/frame_mock_vertical.png" :alt="i"/>
+            <v-image-loader class="v-grid-item__img" :shouldLoad="true" src="./imgs/frame_mock_vertical.png" :alt="i+''"/>
             <h3>Drawing name</h3>
             <p>66£</p>
           </article>
@@ -31,10 +49,12 @@
 
 <script>
 import { Pager } from 'gridsome'
+import { FilterIcon } from 'vue-feather-icons'
 
 export default {
   components: {
-    Pager
+    Pager,
+      FilterIcon
   },
   metaInfo: {
     title: 'Shop'
@@ -82,11 +102,51 @@ query($page: Int){
 
 <style lang="scss" scoped>
 
+.featured{
+  background-color: rgb(243, 243, 243);
+  height: 50vh;
+  margin: 0 0 100px;
+}
 
-
+.format{
+  margin-left: auto;
+  span{
+    box-shadow: 0 0 0 1px var(--light-grey);
+  }
+}
+.categories{
+  flex-wrap: nowrap;
+}
+.controls{
+  display: flex;
+  margin: 0 0 50px;flex-wrap: wrap;
+  span{
+    cursor: pointer;
+    position: relative;
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    padding: 5px 10px;
+    transition: all .3s ease;
+    line-height: 35px;
+    border-radius: 3px;
+    height: 35px;
+    margin: 0 5px;
+    svg{
+      margin: 0 0 0 7px;
+    }
+    &:first-child,&:last-child{
+      margin: 0 0;
+    }
+    &:hover,&.active{
+      background: var(--light-grey);
+    }
+  }
+}
 .grid{
   display:grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-auto-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 50px;
 }
 
 .drawing{
