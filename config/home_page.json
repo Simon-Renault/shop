@@ -179,13 +179,11 @@
     },
     {
       "template": "home-page-tile",
-      "drawing_link": [
-
-      ],
+      "drawing_link": "config/drawings/the-stack.md",
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/apartment.jpeg",
       "sizing": "HORIZONTAL",
       "title": "The stack",
-      "is_interactive": false
+      "is_interactive": true
     }
   ]
 }
