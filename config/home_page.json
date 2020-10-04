@@ -30,13 +30,6 @@
       "is_interactive": false
     },
     {
-      "template": "home_page_quote",
-      "quote": "<p>Pen, paper ...</p><p>and a lot of patience</p>",
-      "has_link": false,
-      "link": "",
-      "link_title": ""
-    },
-    {
       "template": "home-page-tile",
       "drawing_link": [
 
@@ -65,13 +58,6 @@
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/tower2.jpg",
       "title": "High rise",
       "is_interactive": false
-    },
-    {
-      "template": "home_page_quote",
-      "quote": "<p>A subtle mixing of order and chaos</p>",
-      "has_link": false,
-      "link": "",
-      "link_title": ""
     },
     {
       "template": "home-page-tile",
@@ -154,21 +140,12 @@
       "is_interactive": false
     },
     {
-      "template": "home_page_quote",
-      "quote": "<p>Details not only draw attention, </p><p>they spark imagination</p>",
-      "has_link": false,
-      "link": "",
-      "link_title": ""
-    },
-    {
       "template": "home-page-tile",
-      "drawing_link": [
-
-      ],
+      "drawing_link": "config/drawings/drawing_2.md",
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/elephant_detail.jpeg",
       "sizing": "VERTICAL",
       "title": "Sleeping giant",
-      "is_interactive": false
+      "is_interactive": true
     },
     {
       "template": "home-page-tile",
