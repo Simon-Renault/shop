@@ -29,6 +29,7 @@ fields:
     field: is_for_sale
     value: true
 pages:
+- config/drawings/best.md
 - config/drawings/drawing1.md
 - config/drawings/drawing_2.md
 - config/drawings/the-stack.md
