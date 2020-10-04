@@ -43,10 +43,10 @@ fields:
     required: false
     options: []
     source:
-      type: pages
+      type: documents
       section: drawings
       file: 
-      path: 
+      path: ''
   showOnly:
     field: is_interactive
     value: true
