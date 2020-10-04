@@ -132,9 +132,6 @@ export default {
     const [firstVariant] = this.drawing.product.variants
     this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
   },
-  created(){
-     console.log(this.$page.drawings.map(d => d.product))
-  },
   methods: {
     async addToCart () {
       const variant = this.currentVariant
