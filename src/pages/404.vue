@@ -1,11 +1,11 @@
 <template>
   <Layout class="pad-top">
     <v-centered-container>
-      <div class="404-container">
-
+      <div class="q-container">
+        <h1>404</h1>
       </div>
 
-      <h1>404</h1>
+      
    </v-centered-container>
   </Layout>
 </template>
@@ -21,3 +21,18 @@ export default {
 <script>
 
 </script>
+
+
+<style lang="scss">
+
+  .q-container{
+    color :  var(--light-grey);
+    margin:auto;
+    h1{
+      margin:auto;
+      text-align: center;
+      font-size: 50vmin;
+      font-weight: 900;
+    }
+  }
+</style>
