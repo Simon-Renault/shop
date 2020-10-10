@@ -4,8 +4,13 @@
     <CenteredContainer class="project-grid">
 
       <div class="centered">
-        <h2>Simon renault</h2>
-        <p>Hello, I am Simon, a poetic and passionate illustrator. Fascinated by the subtle play between order and chaos, nature and concrete, I like to spend hours drawing intricate and detailed cities and buildings. </p>
+        <h2>Simon Renault</h2>
+        <p>Hello, I am Simon, a poetic and passionate illustrator. 
+          Fascinated by the subtle play between order and chaos, nature and cities, I like to spend hours drawing intricate and detailed environments. </p>
+        <g-link class="button" to="/shop">
+          <span>Shop</span>
+          <shopping-cart-icon size="1x" class="custom-class"></shopping-cart-icon>
+        </g-link>
       </div>
 
       <div class="grid">
@@ -52,10 +57,11 @@ query{
 
 <script>
   import GridItem from '@/components/GridItem.vue'
-
+  import { ShoppingCartIcon } from 'vue-feather-icons'
   export default {
     components: {
-      GridItem
+      GridItem,
+      ShoppingCartIcon,
     },
     computed : {
       homePageItems (){
@@ -73,6 +79,23 @@ query{
   background-color: var(--light-grey);
   border-radius: 3px ;
   margin-bottom: 100px;
+}
+.button{
+  cursor: pointer;
+  margin: 20px 0 0 0;
+  outline: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px ;
+  height:45px;
+  border-radius: 3px;
+  background: black;
+  border: none;
+  color: white;
+  font-size: 14px;
+  span{
+    margin-right: 7px;
+  }
 }
 .centered{
   position: relative;
@@ -94,12 +117,15 @@ query{
     line-height: 1.6;
     opacity: .6;
   }
-   @media screen and (max-width: 600px) {
-      margin: 30px auto 70px;
-     max-width: 100%;
-      h2{
-        font-size: 40px;
-      }
+  @media screen and (max-width: 600px) {
+    margin: 30px auto 70px;
+    max-width: 100%;
+    p{
+      max-width: 95%;
+    }
+    h2{
+      font-size: 40px;
+    }
   }
 }
 .grid {
@@ -112,24 +138,28 @@ query{
 }
 
 .input{
-  border-radius: 3px;
   position: relative;
   height: 45px;
+  padding:0;
   margin: 30px 0;
   width: 100%;
   max-width: 500px;
   display: flex;
-  border: 2px solid black;
   font-size: 15px;
   input{
+    flex-grow: 1;
     height:100%;
     width: 100%;
     border: none;
     outline: none;
     padding: 0 12px;
-     font-size: inherit;
+    font-size: inherit;
+    border: 2px solid black;
+    border-radius:  3px 0 0 3px ;
   }
   button{
+    flex-shrink: 0;
+    margin: 0;
     color: white;
     border: none;
     padding: 0 20px;
@@ -137,6 +167,7 @@ query{
     outline: none;
     cursor: pointer;
     font-size: inherit;
+    border-radius: 0 3px 3px 0;
   }
 }
 </style>

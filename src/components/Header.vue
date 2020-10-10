@@ -9,7 +9,7 @@
         </g-link>
 
         <div class="mobile-nav">
-            <CartLink @click="hideNav" v-if="cart.length >= 1"/>
+            <!-- <CartLink @click="hideNav" v-if="cart.length >= 1"/> -->
             <Burger @click="toggleNav" :isOpen="isNavVisible"/>
         </div>
        
@@ -20,7 +20,7 @@
             <g-link @click="hideNav" class="link" to="/shop"><span>Shop</span></g-link>
             <g-link @click="hideNav" class="link" to="/about"><span>About</span></g-link>
             <hr class="separator"/>
-            <CartLink @click="hideNav" />
+            <CartLink  @click="hideNav" />
 
           </nav>
         </div>
@@ -93,10 +93,12 @@ export default {
   line-height: 24px;
   box-sizing: border-box;
   font-weight: 500;
-
-  &:last-child{
-    padding-right:0;
+  @media screen and (min-width: 800px) {
+    &:last-child{
+      padding-right:0;
+    }
   }
+ 
   &:hover{
     span{
       background: var(--light-grey);

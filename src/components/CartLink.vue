@@ -28,7 +28,16 @@ export default {
 <style lang="scss" scoped>
 .link{
   position: relative;
-  display: flex;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    height: 100%;
+    padding: 0 10px;
+    color: #212121;
+    font-size: 16px;
+    line-height: 24px;
+    box-sizing: border-box;
+    font-weight: 500;
   &:hover,&.active{
     & > span{
        background: var(--light-grey);
@@ -46,6 +55,13 @@ export default {
     height:35px;
     svg{
       margin:0 0 2px 0;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    margin: 0 5px;
+    &  span{
+      width: 100%;
+      height:60px;
     }
   }
   &:hover,&.active--exact{
