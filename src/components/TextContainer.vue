@@ -1,11 +1,19 @@
 <template>
-   <div class="article text">
-       <slot/>
-    </div>
+  <div class="text" v-if="html" v-html="html">
+    ss
+  </div>
+  <div  class="text" v-else>
+    <slot/>
+  </div>
 </template>
 
+<script>
+export default {
+  props : ["html"]
+}
+</script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .text{
   padding: 0 0 100px 0;
   margin : 0 auto;
@@ -21,11 +29,12 @@
   p{
     font-size: 18px;
     margin: 0 0 20px 0;
-    opacity: .7;
     line-height: 1.7;
+    color: rgba(0,0,0,0.6);
   }
   img{
     margin: 20px 0;
+    max-width: 100%;
     border-radius: 3px;
   }
 }

@@ -2,7 +2,7 @@
   <Layout class="pad-top">
     <CenteredContainer>
 
-       <div class="grid1">
+       <div class="product-grid">
 
         <g-link
           v-for="({node:drawing},index) in drawings"
@@ -20,7 +20,7 @@
 
       </div>
       
-      <Pager :info="$page.allDrawings.pageInfo"/>
+      <Pagination :info="$page.allDrawings.pageInfo"/>
 
     </CenteredContainer>
    
@@ -28,15 +28,9 @@
 </template>
 
 <script>
-import { Pager } from 'gridsome'
-import { FilterIcon } from 'vue-feather-icons'
 import slugify from "slugify"
 
 export default {
-  components: {
-    Pager,
-      FilterIcon
-  },
   metaInfo: {
     title: 'Shop'
   },
@@ -124,18 +118,18 @@ query($page: Int){
 }
 
 
-.grid1{
+.product-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 50px;
-  margin: 0 0 200px;
+  margin: 0 0 100px;
 }
 
 .drawing{
+  transition: all .3s ease;
   img{
     border-radius: 3px;
   }
-  transition: all .3s ease;
   &:hover{
     opacity: 0.6;
   }

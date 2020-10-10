@@ -5,34 +5,17 @@
       <div class="top">
 
         <div class="galery">
-          <figure>
-            
-          </figure>
+          <figure></figure>
         </div>
 
-        <Shopper/>
+        <Shopper v-if="product" :product="product"/>
 
       </div>
 
     </CenteredContainer>
 
     <CenteredContainer>
-      <TextContainer>
-        <h2>A nice title</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <h3>A nice title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid nulla pariatur. 
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <img src="https://cdn.shopify.com/s/files/1/0359/0160/3976/products/mock_drawinf_square.jpg?v=1601826514" width="100%" height="100%" alt="">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid nulla pariatur. 
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <h3>A nice title</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid nulla pariatur. 
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </TextContainer>
+      <TextContainer :html="drawing.content"/>
     </CenteredContainer>
    
   </Layout>
@@ -43,6 +26,20 @@ import Shopper from "@/components/Shopper"
 export default {
   components : {
     Shopper
+  },
+  data : () => ({
+    gallery : {
+      activeId : 0,
+      images : []
+    }
+  }),
+  computed : {
+    drawing(){
+      return this.$page.drawings
+    },
+    product(){
+      return this.$page.drawings.product
+    }
   },
   mounted(){
     console.log(this.$page)
@@ -67,6 +64,7 @@ query Drawing ($id: ID!) {
         values
       }
       id
+      title
       availableForSale
       priceRange{
         minVariantPrice{

@@ -175,7 +175,29 @@ export default {
   height: 16px;
 }
 
-
+.hero {
+  padding: 50px 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .logo{
+    cursor: pointer;
+    height:50px;
+    width:50px;
+    background-image: url("../assets/logo.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 86%;
+    border-radius: 50%;
+    box-shadow :0px 0px 0px 0px var(--light-grey);
+    transition: all .3s ease;
+  }
+  &:hover{
+    .logo{
+      box-shadow :0px 0px 0px 4px var(--light-grey);
+    }
+  }
+}
 
 .mobile-nav{
   display:flex;

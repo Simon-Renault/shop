@@ -1,12 +1,12 @@
 
 //libs
 const fs = require('fs-extra')
-const yamlFront = require('yaml-front-matter');
+const yamlFront = require('yaml-front-matter')
 const slugify = require('slugify')
-
+const MarkdownIt = require('markdown-it')
 //consts
 const drawings_base_path = "./config/drawings"
-
+const  md = new MarkdownIt();
 //
 
 
@@ -92,13 +92,13 @@ module.exports = async (api) => {
         drawingJson.map(drawing => {
 
             const matchingProduct = ShopifyProduct.find(p => p.handle === drawing.shopify_referance)
-
+            const content = md.render(drawing.__content)
             DrawingCollection.addNode({
                 name : drawing.name,
                 slug : generateSlug(drawing.name),
                 isForSale : drawing.is_for_sale,
                 cover : drawing.cover,
-                content : drawing.__content,
+                content : content,
                 product : matchingProduct ? actions.createReference(matchingProduct) : ''
             })
         })

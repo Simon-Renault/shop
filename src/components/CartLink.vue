@@ -29,7 +29,7 @@ export default {
 .link{
   position: relative;
   display: flex;
-  &:hover{
+  &:hover,&.active{
     & > span{
        background: var(--light-grey);
     }

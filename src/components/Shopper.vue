@@ -5,55 +5,85 @@
         Ut eiatur. 
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-            <div class="options">
+        <div class="variants">
+          <div  class="variant" 
+                v-for="variant in product.variants" 
+                :key="variant.id"
+                @click="setSelectedVariant(variant.id)">
+            {{variant.title}} - {{variant.price.amount}}
 
-                <div class="option">
-                <div class="name">
-                    Drawing type
-                </div>
-                <ul>
-                    <li class="selected">
-                        Print
-                    </li>
-                    <li>
-                        Original
-                    </li>
-                </ul>
-            </div>
-
-            <div class="option">
-
-                <div class="name">
-                    Format
-                </div>
-
-                <ul>
-                    <li>
-                    A4
-                    </li>
-                    <li  class="selected">
-                    A3
-                    </li>
-                    <li>
-                    A2
-                    </li>
-                </ul>
-            </div>
-
+          </div>
 
         </div>
-        <button>Add to cart</button>
+
+           
+        <button @click="addToCart" 
+                @keyup.enter="addToCart">
+          Add to cart
+        </button>
     </div>
 </template>
 
 <script>
 export default {
-    props : [],
-    data : () => ({})
+  props : ["product"],
+  data: () => ({
+    selectedOptions: {},
+    quantity: 1
+  }),
+   computed: {
+    productOptions () { return this.product.options.filter(({ name }) => name !== 'Title') },
+    currentVariant () {
+      const matchedVariant = this.product.variants.find(variant =>
+        variant.selectedOptions.every(({ name, value }) => value === this.selectedOptions[ name ])
+      )
+      return matchedVariant
+    }
+  },
+  watch: {
+    $route (to, from) {
+      const [firstVariant] = this.product.variants
+      this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
+    }
+  },
+  mounted () {
+    const [firstVariant] = this.product.variants
+    this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
+  },
+  methods: {
+    async addToCart () {
+      const variant = this.currentVariant
+      const payload = {
+        qty: this.quantity,
+        productTitle: this.product.title,
+        variantTitle: variant.title,
+        variantId: variant.id,
+        price: variant.price,
+        image: variant.image
+      }
+      await this.$store.commit('addToCart', payload)
+      this.$notify({
+        title: `Added ${payload.productTitle} to Cart`,
+        type: 'primary',
+        speed: 3000
+      })
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
+.variants{
+  display: grid;
+  grid-gap: 10px;
+  margin: 0 0 30px;
+  .variant{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 3px;
+    border:1px solid black;
+  }
+}
 .shopper{
   h1{
     font-size: 40px;

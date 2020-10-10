@@ -4,8 +4,8 @@
     <CenteredContainer class="project-grid">
 
       <div class="centered">
-        <h2>An awesome title</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient monte</p>
+        <h2>Simon renault</h2>
+        <p>Hello, I am Simon, a poetic and passionate illustrator. Fascinated by the subtle play between order and chaos, nature and concrete, I like to spend hours drawing intricate and detailed cities and buildings. </p>
       </div>
 
       <div class="grid">
@@ -22,7 +22,7 @@
         <h2>Newsletter</h2>
         <p>Subscribe and be informed of new publication, exhibitions, events and more !</p>
         <div class="input">
-          <input type="text">
+          <input type="text" placeholder="Enter your email address ...">
           <button>Subscribe</button>
         </div>
       </div>
@@ -109,5 +109,34 @@ query{
   grid-auto-flow: row dense;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
+}
+
+.input{
+  border-radius: 3px;
+  position: relative;
+  height: 45px;
+  margin: 30px 0;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  border: 2px solid black;
+  font-size: 15px;
+  input{
+    height:100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 12px;
+     font-size: inherit;
+  }
+  button{
+    color: white;
+    border: none;
+    padding: 0 20px;
+    background-color: black;
+    outline: none;
+    cursor: pointer;
+    font-size: inherit;
+  }
 }
 </style>

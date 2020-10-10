@@ -1,8 +1,10 @@
 <template>
   <div class="layout">
-    <notifications/>
+    <Notification/>
     <Header/>
-    <slot/>
+    <div class="page-content">
+       <slot/>
+    </div>
     <Footer/>
   </div>
 </template>
@@ -26,6 +28,12 @@ export default {
 <style lang="scss">
 
 .layout{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  .page-content{
+    flex-grow: 1;
+  }
   &.pad-top{
     padding: calc(var(--header-height) + 20px) 0 0 0;
     @media screen and (min-width: 1130px) {
@@ -33,5 +41,6 @@ export default {
     }
   }
 }
+
 
 </style>

@@ -24,13 +24,20 @@ import 'typeface-prata'
 import ImageLoader from '~/components/LazyImage.vue'
 import CenteredContainer from '~/components/CenteredContainer.vue'
 import TextContainer from '~/components/TextContainer.vue'
+import ButtonLink from '~/components/ButtonLink.vue'
+import Pagination from '~/components/Pagination.vue'
+import Notification from '~/components/Notification.vue'
 
 export default function (Vue, { router,head,appOptions }) {
+
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.component("LazyImage", ImageLoader);
   Vue.component("CenteredContainer", CenteredContainer);
   Vue.component("TextContainer", TextContainer);
+  Vue.component("ButtonLink", ButtonLink);
+  Vue.component("Pagination", Pagination);
+  Vue.component("Notification", Notification);
   // Import global plugins
   Vue.use(Vuex)
   Vue.use(VueApollo)
