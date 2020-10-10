@@ -5,54 +5,88 @@
         Ut eiatur. 
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-        <div class="variants">
-          <div  class="variant" 
-                v-for="variant in product.variants" 
-                :key="variant.id"
-                @click="setSelectedVariant(variant.id)">
-            {{variant.title}} - {{variant.price.amount}}
-
-          </div>
-
+        <div class="variants" v-if="!variants">
+            <Skeleton class="variant" width="100%" />
+            <Skeleton class="variant" width="100%" />
+            <Skeleton class="variant" width="100%" />
         </div>
 
-           
+        <div  class="variants" v-if="variants">
+            <div  class="variant" 
+
+                  :class="{'selected' :variant.id === selecteVariant.id }"
+                  v-for="variant in variants" 
+                  :key="variant.id"
+                  @click="setSelectedVariant(variant)">
+              {{variant.title}} - {{variant.price}}£ -{{variant.quantityAvailable}}
+
+            </div>
+          </div>
+          
         <button @click="addToCart" 
                 @keyup.enter="addToCart">
           Add to cart
         </button>
+
     </div>
 </template>
 
 <script>
+import gql from 'graphql-tag'
+
 export default {
   props : ["product"],
   data: () => ({
-    selectedOptions: {},
-    quantity: 1
+    variants : null,
+    selecteVariant: '',
+    quantity: 1,
+    loading : true
   }),
-   computed: {
-    productOptions () { return this.product.options.filter(({ name }) => name !== 'Title') },
-    currentVariant () {
-      const matchedVariant = this.product.variants.find(variant =>
-        variant.selectedOptions.every(({ name, value }) => value === this.selectedOptions[ name ])
-      )
-      return matchedVariant
-    }
-  },
   watch: {
     $route (to, from) {
-      const [firstVariant] = this.product.variants
-      this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
+      this.setSelectedVariant(this.variants[0])
     }
   },
-  mounted () {
-    const [firstVariant] = this.product.variants
-    this.selectedOptions = firstVariant.selectedOptions.reduce((options, { name, value }) => ({ [ name ]: value, ...options }), {})
+  async mounted () {
+
+    const  { data : {productByHandle : {variants:{edges}}}} = await this.$apollo.query({
+      query: gql`
+        query($handle: String!) {
+          productByHandle(handle: $handle) {
+            handle
+            variants(first: 10) {
+              edges {
+                node {
+                  id
+                  price 
+                  title
+                  availableForSale
+                  quantityAvailable
+                  selectedOptions{
+                    name
+                    value
+                  }
+                }
+              }
+            }
+          }
+        }
+      `,
+      variables : {
+        handle : this.product.handle
+      }
+    })
+
+    this.variants = edges.map(e=>e.node)
+    this.setSelectedVariant(this.variants[0])
+
   },
   methods: {
+    setSelectedVariant(id){
+      this.selecteVariant = id
+    },
     async addToCart () {
-      const variant = this.currentVariant
+      const variant = this.selecteVariant
       const payload = {
         qty: this.quantity,
         productTitle: this.product.title,
@@ -78,10 +112,14 @@ export default {
   grid-gap: 10px;
   margin: 0 0 30px;
   .variant{
+    &.selected{
+      border:2px solid black;
+    }
+    height:40px;
     cursor: pointer;
     padding: 10px;
     border-radius: 3px;
-    border:1px solid black;
+    border:2px solid var(--light-grey);
   }
 }
 .shopper{

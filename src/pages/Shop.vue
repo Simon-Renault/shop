@@ -30,6 +30,7 @@
 <script>
 import slugify from "slugify"
 
+
 export default {
   metaInfo: {
     title: 'Shop'
@@ -81,16 +82,10 @@ query($page: Int){
         isForSale
         product{
           id
+          handle
           availableForSale
           images{
             transformedSrc
-          }
-          variants{
-            id
-            selectedOptions{
-              name
-              value
-            }
           }
           priceRange{
             minVariantPrice{

@@ -65,6 +65,7 @@ query Drawing ($id: ID!) {
       }
       id
       title
+      handle
       availableForSale
       priceRange{
         minVariantPrice{

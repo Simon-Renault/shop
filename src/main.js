@@ -27,6 +27,7 @@ import TextContainer from '~/components/TextContainer.vue'
 import ButtonLink from '~/components/ButtonLink.vue'
 import Pagination from '~/components/Pagination.vue'
 import Notification from '~/components/Notification.vue'
+import Skeleton from '~/components/Skeleton.vue'
 
 export default function (Vue, { router,head,appOptions }) {
 
@@ -38,6 +39,8 @@ export default function (Vue, { router,head,appOptions }) {
   Vue.component("ButtonLink", ButtonLink);
   Vue.component("Pagination", Pagination);
   Vue.component("Notification", Notification);
+  Vue.component("Skeleton", Skeleton);
+
   // Import global plugins
   Vue.use(Vuex)
   Vue.use(VueApollo)
@@ -60,7 +63,7 @@ export default function (Vue, { router,head,appOptions }) {
   // Create Apollo client
   const apolloClient = new ApolloClient({
     fetch,
-    uri: `https://${process.env.GRIDSOME_SHOPIFY_STOREFRONT}.myshopify.com/api/2019-07/graphql.json`,
+    uri: `https://${process.env.GRIDSOME_SHOPIFY_STOREFRONT}.myshopify.com/api/2020-04/graphql.json`,
     headers: {
       'X-Shopify-Storefront-Access-Token': process.env.GRIDSOME_SHOPIFY_STOREFRONT_TOKEN
     }
