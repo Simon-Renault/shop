@@ -188,7 +188,7 @@
     {
       "template": "home-page-tile",
       "drawing_link": "config/drawings/best.md",
-      "sizing": "SQUARE",
+      "sizing": "HORIZONTAL",
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/IMG_20200201_173730-02-01.jpeg",
       "is_interactive": true,
       "title": "The beast"
