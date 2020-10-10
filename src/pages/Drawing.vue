@@ -1,7 +1,7 @@
 <template>
   <Layout>
 
-    <v-centered-container class="project-grid">
+    <CenteredContainer class="project-grid">
 
       <div class="grid">
 
@@ -29,19 +29,19 @@
 
       </div>
 
-    </v-centered-container>
+    </CenteredContainer>
    
   </Layout>
 </template>
 
 <script>
-  import vGridItem from '@/components/v-grid-item.vue'
+  import GridItem from '@/components/GridItem.vue'
 
   import homeConfig from '../../config/home_page.json'
 
   export default {
     components: {
-      'v-grid-item': vGridItem
+      GridItem
     },
     data(){
       return{

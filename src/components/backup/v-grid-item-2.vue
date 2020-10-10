@@ -2,7 +2,7 @@
  
     <g-link class="v-grid-item hidden cool"  to="/" :class="item.sizing"  :style="{'animation-delay':delay+'ms'}" >
 
-        <v-image-loader class="v-grid-item__img" :shouldLoad="isVisible" :src="item.cover_image" :alt="item.title"/>
+        <LazyImage class="v-grid-item__img" :shouldLoad="isVisible" :src="item.cover_image" :alt="item.title"/>
 
         <div class="hover-content">
             <div class="inner">

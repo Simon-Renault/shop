@@ -1,6 +1,6 @@
 <template>
   <Layout class="pad-top">
-    <v-centered-container>
+    <CenteredContainer>
 
     
         <div class="hero">
@@ -107,7 +107,7 @@
           </div>
         </div>
 
-    </v-centered-container>
+    </CenteredContainer>
   </Layout>
 </template>
 

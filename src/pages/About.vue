@@ -1,55 +1,45 @@
 <template>
-  <Layout class="pad-top">
-  
-   <v-centered-container>
- <div class="hero-image"></div>
-     <div class="grid">
-        <div class="img-left"></div>
-        <div v-html="description"></div>
-     </div>
+  <Layout class="pad-top about">
+   <CenteredContainer>
 
-   </v-centered-container>
+    <LazyImage class="cover" :shouldLoad="true" src="./imgs/me.jpeg" alt="a photo of simon renault"/>
+
+    <TextContainer>
+      <h2>A nice title</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3>A nice title</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <img src="https://cdn.shopify.com/s/files/1/0359/0160/3976/products/mock_drawinf_square.jpg?v=1601826514" width="100%" height="100%" alt="">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h3>A nice title</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid nulla pariatur. 
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </TextContainer>
+
+   </CenteredContainer>
   </Layout>
 </template>
-
 
 <script>
 import AboutConfig from '../../config/about_page.json'
 export default {
-  data(){
-    return{
-      description : AboutConfig.description
-    }
-  }
-  
+  data : () => ({
+    description : AboutConfig.description
+  })
 }
 </script>
 
-
 <style lang="scss" scoped>
-.hero-image{
-  height: 50vh;
-  width: 100%;
-  border-radius: 3px;
-  background: var(--light-grey);
-}
-.img-left{
-  height: 400px;
-  background: var(--light-grey);
-}
-.grid{
-  margin: 100px 0;
-  grid-template-columns: 2fr 3fr;
-  grid-gap: 60px;
-  p{
-    opacity: .7;
-    line-height: 1.5;
-  }
-  li{
-    list-style: none;
+.about{
+  .cover{
+    height: 60vh;
   }
 }
-
 </style>
 
 

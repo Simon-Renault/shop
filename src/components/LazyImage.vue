@@ -25,24 +25,18 @@ export default {
             required: false
         }
     },
-    data () {
-      return {
-        loaded: false,
-        loadedPlaceholder: false,
-      }
-    },
+    data : () => ({
+      loaded: false,
+      loadedPlaceholder: false,
+    }),
     computed: {
       padding(){
         return{ paddingBottom : this.ratio }
       }
     },
     methods: {
-      onLoaded () {
-        this.loaded = true
-      },
-      onLoadedPlaceholder () {
-        this.loadedPlaceholder = true
-      }
+      onLoaded () { this.loaded = true },
+      onLoadedPlaceholder () { this.loadedPlaceholder = true }
     }
 }
 </script>

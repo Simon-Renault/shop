@@ -2,9 +2,9 @@
   <Layout class="pad-top">
 
 
-    <v-centered-container>
+    <CenteredContainer>
 
-    </v-centered-container>
+    </CenteredContainer>
    
   </Layout>
 </template>

@@ -1,12 +1,6 @@
 <template>
   <Layout class="pad-top">
-    <v-centered-container>
-
-
-
-      <div class="featured"></div>
-
-  
+    <CenteredContainer>
 
        <div class="grid1">
 
@@ -15,21 +9,21 @@
           :key="index + '-drawing'"
           :to="`shop/product/${drawing.id}`"
           class="drawing">
+
           <article>
-            <v-image-loader class="v-grid-item__img" :shouldLoad="true" :src="drawing.product.images[0].transformedSrc" alt="alt"/>
+            <LazyImage class="v-grid-item__img" :shouldLoad="true" :src="drawing.product.images[0].transformedSrc" alt="alt"/>
             <h3>{{drawing.name}}</h3>
             <p>{{drawing.product.priceRange.minVariantPrice.amount}}£ - {{drawing.product.priceRange.maxVariantPrice.amount}}£</p>
           </article>
          
-              
         </g-link>
 
       </div>
-     
+      
+      <Pager :info="$page.allDrawings.pageInfo"/>
+
+    </CenteredContainer>
    
-       
-    </v-centered-container>
-    <Pager :info="$page.allDrawings.pageInfo"/>
   </Layout>
 </template>
 

@@ -3,22 +3,22 @@
     <notifications/>
     <Header/>
     <slot/>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import Header from '@/components/v-header'
-
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export default {
-  data(){
-    return{
-      isOpen : false,
-      isFixed : false
-    }
-  },
+  data : () => ({
+    isOpen : false,
+    isFixed : false
+  }),
   components: { 
-    Header ,
+    Header,
+    Footer
   },
 }
 </script>

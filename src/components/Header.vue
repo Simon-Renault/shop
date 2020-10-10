@@ -1,5 +1,5 @@
 <template>
-    <header class="header" :class="{sticked:isOpen }" >
+    <header class="header" :class="{sticked:isOpen}" >
 
       <div class="header__inner">
 
@@ -10,22 +10,17 @@
 
         <div class="mobile-nav">
             <CartLink @click="hideNav" v-if="cart.length >= 1"/>
-            <div class="burger" @click="toggleNav">
-              <menu-icon v-if="!isNavVisible" size="1.2x" class="custom-class"></menu-icon>
-              <x-icon v-if="isNavVisible" size="1.2x" class="custom-class"></x-icon>
-            </div>
+            <Burger @click="toggleNav" :isOpen="isNavVisible"/>
         </div>
        
-
         <div class="nav" @click="hideNav" :class="{show:isNavVisible}">
           <nav>
 
-              <g-link @click="hideNav" class="link" to="/"><span>Gallery</span></g-link>
-              <g-link @click="hideNav" class="link" to="/blog"><span>Blog</span></g-link>
-              <g-link @click="hideNav" class="link" to="/shop"><span>Shop</span></g-link>
-              <g-link @click="hideNav" class="link" to="/about"><span>About</span></g-link>
-              <hr class="separator"/>
-              <CartLink @click="hideNav" />
+            <g-link @click="hideNav" class="link" to="/"><span>Gallery</span></g-link>
+            <g-link @click="hideNav" class="link" to="/shop"><span>Shop</span></g-link>
+            <g-link @click="hideNav" class="link" to="/about"><span>About</span></g-link>
+            <hr class="separator"/>
+            <CartLink @click="hideNav" />
 
           </nav>
         </div>
@@ -36,25 +31,21 @@
 </template>
 
 <script>
-import CartLink from '@/components/v-cart-icon-link.vue'
-import { MenuIcon } from 'vue-feather-icons'
-import { XIcon } from 'vue-feather-icons'
+import CartLink from '@/components/CartLink.vue'
+import Burger from '@/components/Burger.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default {
   props : ["type"],
   components : {
-    MenuIcon,
-     XIcon,
-     CartLink
+    Burger,
+    CartLink
   },
-  data() {
-    return {
-      isNavVisible : false,
-      isOpen : false
-    }
-  },
+  data : () => ({
+    isNavVisible : false,
+    isOpen : false
+  }),
   computed:{
       cart () { return this.$store.state.cart },
   },
@@ -70,55 +61,25 @@ export default {
     }
   },
   mounted(){
-      gsap.registerPlugin(ScrollTrigger)
-      const trigger =  ScrollTrigger.create({
-        id : "x1",
-        scrub: true,
-        onUpdate: self => {
+    gsap.registerPlugin(ScrollTrigger)
+    const trigger =  ScrollTrigger.create({
+      id : "x1",
+      scrub: true,
+      onUpdate: self => {
 
-          if(window.scrollY > 100){
-
-
-            if(self.getVelocity() >= 1 && !this.isOpen){
-              console.log("hide")
-              this.isOpen = true
-            }
-
-            if(self.getVelocity() <= -1 && this.isOpen){
-              console.log("show")
-              this.isOpen = false
-            }
-
-          }
-
+        if(window.scrollY > 100){
+          if(self.getVelocity() >= 1 && !this.isOpen)this.isOpen = true
+          if(self.getVelocity() <= -1 && this.isOpen) this.isOpen = false
         }
-      });
+
+      }
+    });
   }
 }
 </script>
 
 
-<style lang="scss" >
-
-.burger{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:35px;
-  padding: 0 10px;
-  border-radius: 3px;
-  cursor: pointer;
-  &:hover{
-      //box-shadow: 0 0 0 2px var(--light-grey);
-      background: var(--light-grey);
-  }
-  @media screen and (min-width: 800px) {
-     display: none;
-  }
-}
-
-
-
+<style lang="scss" scoped>
 .link {
   color: var(--black);
   position: relative;
@@ -146,7 +107,6 @@ export default {
       background: var(--light-grey);
     }
   }
-
   span {
     position: relative;
     display: inline-flex;
@@ -162,8 +122,6 @@ export default {
     }
   }
 }
-  
-
 .header{
     height: var(--header-height);
     position: fixed;
@@ -203,11 +161,7 @@ export default {
         color: black;
       }
     }
-
 }
-
-
-
 .title{
   display: none;
 }
@@ -221,29 +175,7 @@ export default {
   height: 16px;
 }
 
-.hero {
-  padding: 50px 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .logo{
-    cursor: pointer;
-    height:50px;
-    width:50px;
-    background-image: url("../assets/logo.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 86%;
-    border-radius: 50%;
-    box-shadow :0px 0px 0px 0px var(--light-grey);
-    transition: all .3s ease;
-  }
-  &:hover{
-    .logo{
-      box-shadow :0px 0px 0px 4px var(--light-grey);
-    }
-  }
-}
+
 
 .mobile-nav{
   display:flex;
@@ -251,13 +183,9 @@ export default {
      display: none;
   }
 }
-
 .nav {
     height: 35px;
     display: none;
-
-
-   
     @media screen and (max-width: 800px) {
 
       @keyframes opacity {
@@ -330,8 +258,6 @@ export default {
         }
       }
     }
-
-
     @media screen and (min-width: 800px) {
       display: flex;
     }

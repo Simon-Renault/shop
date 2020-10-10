@@ -21,14 +21,16 @@ import 'typeface-karla'
 import 'typeface-prata'
 
 //components
-import vImageLoader from '~/components/v-image-loader.vue'
-import vCenteredContainer from '~/components/v-centered-container.vue'
+import ImageLoader from '~/components/LazyImage.vue'
+import CenteredContainer from '~/components/CenteredContainer.vue'
+import TextContainer from '~/components/TextContainer.vue'
 
 export default function (Vue, { router,head,appOptions }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
-  Vue.component("v-image-loader", vImageLoader);
-  Vue.component("v-centered-container", vCenteredContainer);
+  Vue.component("LazyImage", ImageLoader);
+  Vue.component("CenteredContainer", CenteredContainer);
+  Vue.component("TextContainer", TextContainer);
   // Import global plugins
   Vue.use(Vuex)
   Vue.use(VueApollo)

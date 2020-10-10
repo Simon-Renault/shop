@@ -1,12 +1,12 @@
 <template>
   <Layout class="pad-top">
-    <v-centered-container>
+    <CenteredContainer>
       <div class="q-container">
         <h1>404</h1>
       </div>
 
       
-   </v-centered-container>
+   </CenteredContainer>
   </Layout>
 </template>
 

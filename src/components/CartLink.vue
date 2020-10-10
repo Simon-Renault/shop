@@ -7,9 +7,9 @@
     </g-link>
 </template>
 
-
 <script>
 import { ShoppingCartIcon } from 'vue-feather-icons'
+
 export default {
   components : {
     ShoppingCartIcon,
@@ -20,16 +20,6 @@ export default {
   }),
   computed: {
     cart () { return this.$store.state.cart },
-    searchResults () {
-      const searchTerm = this.searchTerm
-      if (searchTerm.length < 3) return []
-      return this.$search.search({ query: searchTerm, limit: 5, suggest: true })
-    }
-  },
-  watch: {
-    $route (to, from) {
-      this.searchTerm = ''
-    }
   }
 }
 </script>
@@ -38,7 +28,26 @@ export default {
 <style lang="scss" scoped>
 .link{
   position: relative;
-
+  display: flex;
+  &:hover{
+    & > span{
+       background: var(--light-grey);
+    }
+  }
+  & > span{
+    position: relative;
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    padding: 5px 10px;
+    transition: all .3s ease;
+    line-height: 35px;
+    border-radius: 3px;
+    height:35px;
+    svg{
+      margin:0 0 2px 0;
+    }
+  }
   &:hover,&.active--exact{
     .indicator{
       color: black;
