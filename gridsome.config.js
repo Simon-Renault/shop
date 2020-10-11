@@ -1,5 +1,7 @@
 module.exports = {
   siteName: 'Simon Renault - Drawing',
+  siteDescription: 'The shop and portfolio of the french artist Simon Renault. Detailed city drawings',
+  siteUrl: 'https://simon-renault.art',
   templates: {
     Drawings: [
       {
