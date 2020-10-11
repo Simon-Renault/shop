@@ -50,6 +50,20 @@
   --black: #212121;
   --light-grey: #F3F3F5;
   --header-height : 90px;
+  --accents-1: #fafafa;
+  --accents-2: #eaeaea;
+  --accents-3: #999;
+  --accents-4: #888;
+  --accents-5: #666;
+  --accents-6: #444;
+  --accents-7: #333;
+  --accents-8: #111;
+
+  --shadow-small: 0 5px 10px rgba(0,0,0,0.12);
+  --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-large: 0 30px 60px rgba(0,0,0,0.12);
+  --shadow-hover: 0 30px 60px rgba(0,0,0,0.12);
+  --shadow-sticky: 0 12px 10px -10px rgba(0,0,0,0.12);
 }
 
 a {
@@ -81,4 +95,10 @@ a {
   pointer-events: none;
   user-select: none;
   border:none !important;
+}
+
+
+input::placeholder{
+  color: var(--accents-3);
+  opacity: 0.8;
 }

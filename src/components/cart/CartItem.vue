@@ -1,12 +1,12 @@
 <template>
   <li class="cart-item">
 
-    <figure class="thumbnail">
-        <LazyImage  class="v-grid-item__img" 
-                    :shouldLoad="true" 
-                    :src="item.image.transformedSrc" 
-                    alt="alt to fill"/>
-    </figure>
+
+    <LazyImage  class="thumbnail" 
+                :shouldLoad="true" 
+                :src="item.image.transformedSrc" 
+                alt="alt to fill"/>
+
 
     <div>
         {{ item.productTitle }}
@@ -19,15 +19,18 @@
     </div>
 
 
-    <div class="cart-item__edditor">
-        <button
-            class="button is-white"
+    <div class="hover-actions">
+        <button class="button remove"
             @click="removeItem(item.variantId)"
             @keyup="removeItem(item.variantId)">
-            <small>Remove</small>
+            <span>Remove</span>
         </button>
-        <button
-            class="button is-light"
+    </div>
+
+
+    <div class="cart-item__edditor">
+       
+        <button class="button"
             @click="decreaseItemQty(item)"
             @keyup="decreaseItemQty(item)">
             -
@@ -40,8 +43,7 @@
                 min="1"
                 @change="e => updateItemQty(item, e.target.valueAsNumber)">
         </label>
-        <button
-            class="button is-light"
+        <button class="button"
             @click="increaseItemQty(item)"
             @keyup="increaseItemQty(item)">
             +
@@ -85,6 +87,34 @@ export default {
 
 <style lang="scss" scoped>
 .cart-item{
+    position: relative;
+    display: flex;
+    border: 1px solid var(--accents-2);
+    padding: 0 0 10px 0;
+    padding:10px;
+    border-radius: 3px;
+    height: 180px;
+    max-width: 100vw;
+    overflow: hidden;
+    .thumbnail{
+        position: relative;
+        height:100%;
+        margin: 0 10px 0 0;
 
+        img{
+            height: 100%;
+        }
+    }
+    &__edditor{
+        display: flex;
+    }
+    .hover-actions{
+        position: absolute;
+        top:0;
+        right:0;
+        left:auto;
+        bottom:0;
+    }
 }
+
 </style>

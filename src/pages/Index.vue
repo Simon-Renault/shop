@@ -56,24 +56,24 @@ query{
 </page-query>
 
 <script>
-  import HomeConfig from '../../config/home_page.json'
-  import GridItem from '@/components/GridItem.vue'
-  import { ShoppingCartIcon } from 'vue-feather-icons'
+import HomeConfig from '../../config/home_page.json'
+import GridItem from '@/components/GridItem.vue'
+import { ShoppingCartIcon } from 'vue-feather-icons'
 
-  export default {
-    components: {
-      GridItem,
-      ShoppingCartIcon,
-    },
-    data : () =>({
-      intro : HomeConfig.intro
-    }),
-    computed : {
-      homePageItems (){
-        return this.$page.allHomePageFeaturedItem.edges.map(i => i.node)
-      }
+export default {
+  components: {
+    GridItem,
+    ShoppingCartIcon,
+  },
+  data : () =>({
+    intro : HomeConfig.intro
+  }),
+  computed : {
+    homePageItems (){
+      return this.$page.allHomePageFeaturedItem.edges.map(i => i.node)
     }
   }
+}
 </script>
 
 
@@ -81,7 +81,7 @@ query{
 .shop_banner{
   height:300px;
   width: 100%;
-  background-color: var(--light-grey);
+  background-color: var(--accents-2);
   border-radius: 3px ;
   margin-bottom: 100px;
 }
@@ -150,7 +150,7 @@ query{
   width: 100%;
   max-width: 500px;
   display: flex;
-  font-size: 15px;
+  font-size: 14px;
   input{
     flex-grow: 1;
     height:100%;
@@ -159,8 +159,12 @@ query{
     outline: none;
     padding: 0 12px;
     font-size: inherit;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius:  3px 0 0 3px ;
+     &:focus{
+        box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+        border: 1px solid black;
+    }
   }
   button{
     flex-shrink: 0;

@@ -32,6 +32,8 @@ export default {
   flex-direction: column;
   .page-content{
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
   }
   padding: calc(var(--header-height) + 20px) 0 0 0;
   @media screen and (min-width: 1130px) {

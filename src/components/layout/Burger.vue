@@ -28,7 +28,7 @@ export default {
     border-radius: 3px;
     cursor: pointer;
     &:hover{
-        background: var(--light-grey);
+        background: var(--accents-2);
     }
 }
 </style>

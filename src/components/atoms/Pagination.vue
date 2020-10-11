@@ -35,7 +35,7 @@ export default {
         font-weight: 500;
         padding: 5px 10px;
         &:hover{
-            background: var(--light-grey);
+            background: var(--accents-2);
             border-radius: 3px;
         }
 

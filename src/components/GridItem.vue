@@ -160,7 +160,7 @@ export default {
             display: flex;
             align-items: center;
         }
-        background: var(--light-grey);
+        background: var(--accents-2);
         &.HORIZONTAL{
             padding-bottom: 50%;
             @media screen and (min-width: 600px) {

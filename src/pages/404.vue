@@ -13,7 +13,7 @@
 
 <style lang="scss">
   .q-container{
-    color :  var(--light-grey);
+    color :  var(--accents-2);
     margin:auto;
     h1{
       margin:auto;

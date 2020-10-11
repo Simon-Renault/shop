@@ -116,16 +116,19 @@ export default {
   margin: 0 0 30px;
   .variant{
     &.selected{
-      border:2px solid black;
+      border:1px solid black;
     }
     min-height:70px;
     cursor: pointer;
     padding: 10px;
     border-radius: 3px;
-    border:2px solid var(--light-grey);
+    border:1px solid var(--accents-2);
   }
 }
 .shopper{
+
+  border-radius: 3px;
+ 
   h1{
     font-size: 40px;
     margin: 10px 0 20px 0;
@@ -181,18 +184,18 @@ export default {
       display: flex;
       align-items: center;
       &:hover{
-        background: var(--light-grey);
+        background: var(--accents-2);
       }
       &::before{
         content:'';
         display: block;
-        border: 1px solid var(--light-grey);
+        border: 1px solid var(--accents-2);
         border-radius: 50%;
         height:15px;
         width:15px;
         margin: 0 10px 0 0;
       }
-      border: 1px solid var(--light-grey);
+      border: 1px solid var(--accents-2);
       border-radius: 3px;
       list-style: none;
       padding: 12px 30px 12px 15px;

@@ -20,10 +20,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.about{
-  .cover{
-    height: 60vh;
-  }
+.cover{
+  height: 60vh;
 }
 </style>
 

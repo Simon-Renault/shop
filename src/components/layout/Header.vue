@@ -172,8 +172,8 @@ export default {
   display: inline-block;
   border: none;
   border-radius: 2px;
-  background :  var(--light-grey);
-  width: 2px;
+  background :  var(--accents-2);
+  width: 1px;
   height: 16px;
 }
 
