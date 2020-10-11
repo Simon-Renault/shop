@@ -1,5 +1,5 @@
 <template>
-  <Layout class="pad-top">
+  <Layout>
     <CenteredContainer>
 
       <div class="hero">
@@ -122,10 +122,9 @@ export default {
   methods: {
     async removeItem (itemId) {
       await this.$store.dispatch('removeFromCart', itemId)
-      this.$notify({
-        title: 'Item removed from cart',
-        type: 'primary'
-      })
+      this.$toast.success(`Item removed from the cart`,{
+        position: 'top'
+      });
     },
     async decreaseItemQty (item) {
       if (item.qty === 1) return
@@ -141,10 +140,11 @@ export default {
       await this.$store.dispatch('updateItemQty', { itemId: item.variantId, qty })
     },
     async checkout () {
-      const email = this.email
-      if (!this.cart.length) return alert('No items in cart')
-      const lineItems = this.cart.map(item => ({ quantity: item.qty, variantId: item.variantId }))
 
+      if (!this.cart.length) return alert('No items in cart')
+
+      const email = this.email
+      const lineItems = this.cart.map(item => ({ quantity: item.qty, variantId: item.variantId }))
       const checkoutInput = { email, lineItems }
 
       try {
@@ -172,11 +172,11 @@ export default {
       } catch (error) {
         this.isLoading = false
         console.error(error)
-        this.$notify({
-          title: 'Whoops...',
-          type: 'danger',
-          message: 'Something went wrong - please try again.'
-        })
+
+        this.$toast.error(`Ooops,something went wrong - please try again.`,{
+          position: 'top'
+        });
+        
       }
     }
   }

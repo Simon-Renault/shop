@@ -1,30 +1,17 @@
 <template>
-  <Layout class="pad-top">
+  <Layout>
     <CenteredContainer>
+
       <div class="q-container">
         <h1>404</h1>
       </div>
 
-      
    </CenteredContainer>
   </Layout>
 </template>
 
 
-<script>
-export default {
-  
-}
-</script>
-
-
-<script>
-
-</script>
-
-
 <style lang="scss">
-
   .q-container{
     color :  var(--light-grey);
     margin:auto;

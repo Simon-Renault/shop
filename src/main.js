@@ -7,7 +7,7 @@ import DefaultLayout from '~/layouts/Default.vue'
 // Plugins
 import createStore from '@/store/store'
 import VueApollo from 'vue-apollo'
-import Notifications from 'vue-notification/dist/ssr.js'
+import VueToast from 'vue-toast-notification';
 
 // Dependencies
 import ApolloClient from 'apollo-boost'
@@ -26,7 +26,6 @@ import CenteredContainer from '~/components/layout/CenteredContainer.vue'
 import TextContainer from '~/components/atoms/TextContainer.vue'
 import ButtonLink from '~/components/atoms/ButtonLink.vue'
 import Pagination from '~/components/atoms/Pagination.vue'
-import Notification from '~/components/atoms/Notification.vue'
 import Skeleton from '~/components/atoms/Skeleton.vue'
 
 export default function (Vue, {router, head, appOptions, isClient }) {
@@ -38,13 +37,12 @@ export default function (Vue, {router, head, appOptions, isClient }) {
   Vue.component("TextContainer", TextContainer);
   Vue.component("ButtonLink", ButtonLink);
   Vue.component("Pagination", Pagination);
-  Vue.component("Notification", Notification);
   Vue.component("Skeleton", Skeleton);
 
   // Import global plugins
   Vue.use(Vuex)
   Vue.use(VueApollo)
-  Vue.use(Notifications)
+  Vue.use(VueToast);
 
   //configure the router
   router.options.scrollBehavior = function(to, from , savedPosition) {

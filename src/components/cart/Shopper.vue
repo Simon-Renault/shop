@@ -99,11 +99,11 @@ export default {
         image: variant.image
       }
       await this.$store.dispatch('addToCart', payload)
-      this.$notify({
-        title: `Added ${payload.productTitle} to Cart`,
-        type: 'primary',
-        speed: 3000
-      })
+
+      this.$toast.success(`Added ${this.product.title} to the cart`,{
+        position: 'top'
+      });
+
     }
   }
 }

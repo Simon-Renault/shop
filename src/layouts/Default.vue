@@ -1,9 +1,8 @@
 <template>
   <div class="layout">
-    <Notification/>
     <Header/>
     <div class="page-content">
-       <slot/>
+      <slot/>
     </div>
     <Footer/>
   </div>
@@ -34,13 +33,9 @@ export default {
   .page-content{
     flex-grow: 1;
   }
-  &.pad-top{
-    padding: calc(var(--header-height) + 20px) 0 0 0;
-    @media screen and (min-width: 1130px) {
-      padding: calc(var(--header-height) * 2) 0 0 0;
-    }
+  padding: calc(var(--header-height) + 20px) 0 0 0;
+  @media screen and (min-width: 1130px) {
+    padding: calc(var(--header-height) * 2) 0 0 0;
   }
 }
-
-
 </style>

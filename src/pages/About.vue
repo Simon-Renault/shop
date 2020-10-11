@@ -1,5 +1,5 @@
 <template>
-  <Layout class="pad-top about">
+  <Layout>
    <CenteredContainer>
 
     <LazyImage class="cover" :shouldLoad="true" src="./imgs/me.jpeg" alt="a photo of simon renault"/>

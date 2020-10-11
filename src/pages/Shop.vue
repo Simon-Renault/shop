@@ -1,5 +1,5 @@
 <template>
-  <Layout class="pad-top">
+  <Layout>
     <CenteredContainer>
 
        <div class="product-grid">
