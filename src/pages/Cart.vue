@@ -5,6 +5,9 @@
       <div class="cart-layout">
         <div class="cart-layout__list">
           <ul class="cart-layout__list__inner">
+            <div class="legend">
+              
+            </div>
             <CartItem v-for="item in $store.state.cart" 
                 :item="item" 
                 :key="item.variantId"/>
@@ -56,7 +59,7 @@ export default {
     flex-direction: column;
     &__inner{
       display: grid;
-      grid-gap: 30px;
+      grid-gap: 20px;
     }
   }
 }

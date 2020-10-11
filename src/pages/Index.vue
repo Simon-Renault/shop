@@ -77,7 +77,7 @@ export default {
 </script>
 
 
-<style lang="scss" >
+<style lang="scss" scoped>
 .shop_banner{
   height:300px;
   width: 100%;
@@ -142,41 +142,43 @@ export default {
 
 }
 
-.input{
-  position: relative;
-  height: 45px;
-  padding:0;
-  margin: 30px 0;
-  width: 100%;
-  max-width: 500px;
-  display: flex;
-  font-size: 14px;
-  input{
-    flex-grow: 1;
-    height:100%;
+.project-grid{
+  .input{
+    position: relative;
+    height: 45px;
+    padding:0;
+    margin: 30px 0;
     width: 100%;
-    border: none;
-    outline: none;
-    padding: 0 12px;
-    font-size: inherit;
-    border: 1px solid black;
-    border-radius:  3px 0 0 3px ;
-     &:focus{
-        box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
-        border: 1px solid black;
-    }
+    max-width: 500px;
+    display: flex;
+    font-size: 14px;
+    input{
+      flex-grow: 1;
+      height:100%;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 0 12px;
+      font-size: inherit;
+      border: 1px solid black;
+      border-radius:  3px 0 0 3px ;
+      &:focus{
+          box-shadow: 0 0 0 3px rgba(0,0,0,0.1);
+          border: 1px solid black;
+      }
   }
   button{
-    flex-shrink: 0;
-    margin: 0;
-    color: white;
-    border: none;
-    padding: 0 20px;
-    background-color: black;
-    outline: none;
-    cursor: pointer;
-    font-size: inherit;
-    border-radius: 0 3px 3px 0;
+      flex-shrink: 0;
+      margin: 0;
+      color: white;
+      border: none;
+      padding: 0 20px;
+      background-color: black;
+      outline: none;
+      cursor: pointer;
+      font-size: inherit;
+      border-radius: 0 3px 3px 0;
+    }
   }
 }
 </style>

@@ -118,6 +118,9 @@ export default {
     &.selected{
       border:1px solid black;
     }
+    &:hover{
+      background-color: var(--accents-1);
+    }
     min-height:70px;
     cursor: pointer;
     padding: 10px;

@@ -38,10 +38,10 @@ export default {
   }),
   computed: {
     cartTotal () { 
-      return this.$store.getters.cartTotal.format() 
+        return this.$store.getters.cartTotal.format() 
     },
     cart () { 
-         return this.$store.state.cart 
+        return this.$store.state.cart 
     },
   },
   methods: {
@@ -95,10 +95,10 @@ export default {
     top: 100px;
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow-medium);
-     border-radius: 3px;
+   
+    
     &__inner{
-       
+        box-shadow: var(--shadow-medium);
         border-radius: 3px;
         border: 1px solid rgba(0,0,0,0.07);
         margin-bottom: auto;
