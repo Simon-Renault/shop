@@ -60,6 +60,9 @@ export default {
                   id
                   price 
                   title
+                  image {
+                    transformedSrc(maxHeight:200,maxWidth:200)
+                  }
                   availableForSale
                   quantityAvailable
                   selectedOptions{
@@ -109,13 +112,14 @@ export default {
 <style lang="scss" scoped>
 .variants{
   display: grid;
+  //grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 10px;
   margin: 0 0 30px;
   .variant{
     &.selected{
       border:2px solid black;
     }
-    height:40px;
+    min-height:70px;
     cursor: pointer;
     padding: 10px;
     border-radius: 3px;

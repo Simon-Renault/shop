@@ -30,7 +30,7 @@
                 <td>
                   <figure class="image is-square">
                     <img
-                      :src="item.image.thumbnail"
+                      :src="item.image.transformedSrc"
                       :alt="item.image.altText || item.title">
                   </figure>
                 </td>

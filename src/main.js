@@ -5,7 +5,7 @@
 import DefaultLayout from '~/layouts/Default.vue'
 
 // Plugins
-import Store from '@/store/store'
+import createStore from '@/store/store'
 import VueApollo from 'vue-apollo'
 import Notifications from 'vue-notification/dist/ssr.js'
 
@@ -29,7 +29,7 @@ import Pagination from '~/components/Pagination.vue'
 import Notification from '~/components/Notification.vue'
 import Skeleton from '~/components/Skeleton.vue'
 
-export default function (Vue, { router,head,appOptions }) {
+export default function (Vue, {router, head, appOptions, isClient }) {
 
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
@@ -78,7 +78,9 @@ export default function (Vue, { router,head,appOptions }) {
   appOptions.apolloProvider = apolloProvider
 
   // Create Vuex store
-  appOptions.store = Store
+  const store = createStore(Vue, { isClient })
+  appOptions.store = store
+
 
 
   // Add the different metas
