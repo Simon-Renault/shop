@@ -8,12 +8,6 @@ module.exports = {
         path: '/shop/product/:id',
         component: './src/templates/Drawing.vue'
       }
-    ],
-    ShopifyCollection: [
-      {
-        path: '/collection/:handle',
-        component: './src/templates/Collection.vue'
-      }
     ]
   },
   plugins: [
@@ -29,7 +23,7 @@ module.exports = {
     {
       use: '@gridsome/plugin-critical',
       options: {
-        paths: ['/', '/shop', '/shop/product/*','/about'],
+        paths: ['/*', '/shop', '/shop/product/*','/about'],
         width: 1300,
         height: 900
       }
@@ -40,6 +34,10 @@ module.exports = {
         exclude: ['/account'],
         config: {
           '/shop': {
+            changefreq: 'daily',
+            priority: 0.5
+          },
+          '/about': {
             changefreq: 'daily',
             priority: 0.5
           },

@@ -112,7 +112,6 @@ export default {
 <style lang="scss" scoped>
 .variants{
   display: grid;
-  //grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   grid-gap: 10px;
   margin: 0 0 30px;
   .variant{

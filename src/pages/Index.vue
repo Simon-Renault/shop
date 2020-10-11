@@ -5,21 +5,21 @@
 
       <div class="centered">
         <h2>Simon Renault</h2>
-        <p>Hello, I am Simon, a poetic and passionate illustrator. 
-          Fascinated by the subtle play between order and chaos, nature and cities, I like to spend hours drawing intricate and detailed environments. </p>
+        <p>{{intro}}</p>
+        
         <g-link class="button" to="/shop">
           <span>Shop</span>
           <shopping-cart-icon size="1x" class="custom-class"></shopping-cart-icon>
         </g-link>
+
       </div>
 
       <div class="grid">
 
-        <template v-for="(item,index) in homePageItems" >
-          <GridItem  class="special"  
-            :item="item" 
-            :key="'grid-item'+index"/>
-        </template>
+        <GridItem  class="special"  
+          :item="item" 
+          v-for="(item,index) in homePageItems"
+          :key="'grid-item'+index"/>
 
       </div>
 
@@ -56,13 +56,18 @@ query{
 </page-query>
 
 <script>
+  import HomeConfig from '../../config/home_page.json'
   import GridItem from '@/components/GridItem.vue'
   import { ShoppingCartIcon } from 'vue-feather-icons'
+
   export default {
     components: {
       GridItem,
       ShoppingCartIcon,
     },
+    data : () =>({
+      intro : HomeConfig.intro
+    }),
     computed : {
       homePageItems (){
         return this.$page.allHomePageFeaturedItem.edges.map(i => i.node)

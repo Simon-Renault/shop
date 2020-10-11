@@ -1,6 +1,3 @@
-// This is the main.js file. Import global CSS and scripts here.
-// The Client API can be used here. Learn more: gridsome.org/docs/client-api
-
 // Layouts
 import DefaultLayout from '~/layouts/Default.vue'
 
@@ -14,11 +11,8 @@ import ApolloClient from 'apollo-boost'
 import fetch from 'isomorphic-fetch'
 import Vuex from 'vuex'
 
-
 // Styles
 import '~/styles/main.scss'
-import 'typeface-karla'
-import 'typeface-prata'
 
 //components
 import ImageLoader from '~/components/atoms/LazyImage.vue'
@@ -59,7 +53,7 @@ export default function (Vue, {router, head, appOptions, isClient }) {
   }
 
   // Create Apollo client
-  const apolloClient = new ApolloClient({
+  const defaultClient = new ApolloClient({
     fetch,
     uri: `https://${process.env.GRIDSOME_SHOPIFY_STOREFRONT}.myshopify.com/api/2020-04/graphql.json`,
     headers: {
@@ -67,18 +61,11 @@ export default function (Vue, {router, head, appOptions, isClient }) {
     }
   })
 
-  // Add client to vue-apollo provider
-  const apolloProvider = new VueApollo({
-    defaultClient: apolloClient
-  })
-
   // Add provider to vue app
-  appOptions.apolloProvider = apolloProvider
+  appOptions.apolloProvider = new VueApollo({defaultClient})
 
   // Create Vuex store
-  const store = createStore(Vue, { isClient })
-  appOptions.store = store
-
+  appOptions.store = createStore(Vue, { isClient })
 
 
   // Add the different metas
@@ -86,11 +73,11 @@ export default function (Vue, {router, head, appOptions, isClient }) {
     name: 'keywords',
     content: 'Drawing fine-art art illustration city detailes detailed precise'
   })
-
   head.meta.push({
     name: 'description',
     content: 'The portfolio and shop of the french illustrator Simon Renault'
   })
+  
 }
 
 
