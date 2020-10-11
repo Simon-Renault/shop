@@ -58,7 +58,7 @@ module.exports = {
       use: 'gridsome-plugin-manifest',
       options: {
         background_color: '#000000',
-        icon_path: './src/assets/favicon.jpg',
+        icon_path: './src/favicon.png',
         name: 'Simon Renault - Drawing',
         short_name: 'Simon R - Drawing',
         theme_color: '#000000',

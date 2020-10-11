@@ -21,13 +21,13 @@ import 'typeface-karla'
 import 'typeface-prata'
 
 //components
-import ImageLoader from '~/components/LazyImage.vue'
-import CenteredContainer from '~/components/CenteredContainer.vue'
-import TextContainer from '~/components/TextContainer.vue'
-import ButtonLink from '~/components/ButtonLink.vue'
-import Pagination from '~/components/Pagination.vue'
-import Notification from '~/components/Notification.vue'
-import Skeleton from '~/components/Skeleton.vue'
+import ImageLoader from '~/components/atoms/LazyImage.vue'
+import CenteredContainer from '~/components/layout/CenteredContainer.vue'
+import TextContainer from '~/components/atoms/TextContainer.vue'
+import ButtonLink from '~/components/atoms/ButtonLink.vue'
+import Pagination from '~/components/atoms/Pagination.vue'
+import Notification from '~/components/atoms/Notification.vue'
+import Skeleton from '~/components/atoms/Skeleton.vue'
 
 export default function (Vue, {router, head, appOptions, isClient }) {
 

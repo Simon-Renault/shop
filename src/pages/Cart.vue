@@ -2,117 +2,111 @@
   <Layout class="pad-top">
     <CenteredContainer>
 
-    
-        <div class="hero">
-          <div class="hero-body">
-            <div class="container has-text-centered">
-              <h3 class="title">
-                Cart
-              </h3>
-            </div>
+      <div class="hero">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h3 class="title">
+              Cart
+            </h3>
           </div>
         </div>
-        <div class="container">
-          <table class="table is-fullwidth">
-            <thead>
-              <tr>
-                <th />
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="item in cart"
-                :key="item.variantId">
-                <td>
-                  <figure class="image is-square">
-                    <img
-                      :src="item.image.transformedSrc"
-                      :alt="item.image.altText || item.title">
-                  </figure>
-                </td>
-                <td>
-                  {{ item.productTitle }}
-                  {{ item.variantTitle !== 'Default Title' ? `- ${item.variantTitle}` : '' }}
-                </td>
-                <td>{{ item.qty }}</td>
-                <td>{{ totalPrice(item) }}</td>
-                <td
-                  width="200"
-                  class="has-text-right">
+      </div>
+
+      <table class="table is-fullwidth">
+        <tbody>
+          <tr
+            v-for="item in cart"
+            :key="item.variantId">
+            <td width="150">
+              <figure class="image is-square">
+                <img
+                  :src="item.image.transformedSrc"
+                  :alt="item.image.altText || item.title">
+              </figure>
+            </td>
+            <td>
+              <g-link
+                :to="item.path"
+                class="is-uppercase has-text-weight-medium">
+                {{ item.productTitle }}
+              </g-link>
+              <p>
+                <small>
+                  {{ item.variantTitle !== 'Default Title' ? item.variantTitle : '' }}
+                </small>
+              </p>
+              <p>
+                <small>
+                  {{ item.price }}
+                </small>
+              </p>
+            </td>
+            <td />
+            <td width="300">
+              <div class="field has-addons">
+                <div class="control">
                   <button
-                    class="delete is-danger"
+                    class="button is-white"
                     @click="removeItem(item.variantId)"
                     @keyup="removeItem(item.variantId)">
                     <small>Remove</small>
                   </button>
-                </td>
-              </tr>
-            </tbody>
-            <tfoot v-if="cart.length">
-              <tr>
-                <th />
-                <th />
-                <th />
-                <th />
-                <th class="has-text-right">
-                  <p>Cart Total: {{ cartTotal }}</p>
-                </th>
-              </tr>
-            </tfoot>
-          </table>
-          <br>
-          <form
-            v-if="cart.length"
-            @submit.prevent="checkout">
-            <div class="field is-grouped is-grouped-right">
-              <div class="field has-addons">
+                </div>
                 <div class="control">
-                  <label
-                    for="email"
-                    class="label">
+                  <button
+                    class="button is-light"
+                    @click="decreaseItemQty(item)"
+                    @keyup="decreaseItemQty(item)">
+                    -
+                  </button>
+                </div>
+                <div class="control">
+                  <label for="qty">
                     <input
-                      id="email"
-                      v-model="email"
-                      class="input"
-                      type="email"
-                      placeholder="Your email address"
-                      required>
+                      :value="item.qty"
+                      class="input has-text-centered"
+                      type="number"
+                      placeholder="Enter a quantity"
+                      min="1"
+                      @change="e => updateItemQty(item, e.target.valueAsNumber)">
                   </label>
                 </div>
                 <div class="control">
                   <button
-                    :class="{'is-loading': isLoading}"
-                    type="submit"
-                    class="button is-primary">
-                    Checkout
+                    class="button is-light"
+                    @click="increaseItemQty(item)"
+                    @keyup="increaseItemQty(item)">
+                    +
                   </button>
                 </div>
               </div>
-            </div>
-          </form>
-          <div
-            v-else
-            class="container has-text-centered">
-            <p>To checkout, add some items to cart.</p>
-            <br>
-            <g-link
-              to="/shop"
-              class="button is-primary is-outlined">
-              Browse
-            </g-link>
-          </div>
-        </div>
+            </td>
+            <td width="150">
+              <p class="has-text-right item-total">
+                {{ item.total }}
+              </p>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot v-if="cart.length">
+          <tr>
+            <th />
+            <th />
+            <th />
+            <th />
+            <th class="has-text-right">
+              <p>Cart Total: {{ cartTotal }}</p>
+            </th>
+          </tr>
+        </tfoot>
+      </table>
+     
 
     </CenteredContainer>
   </Layout>
 </template>
 
 <script>
-import currency from 'currency.js'
 import gql from 'graphql-tag'
 export default {
   metaInfo: {
@@ -120,22 +114,31 @@ export default {
   },
   data: () => ({ email: '', isLoading: false }),
   computed: {
-    cart () { return this.$store.state.cart },
-    cartTotal () {
-      const total = this.cart.reduce((total, item) => total.add(currency(item.price.amount).multiply(item.qty)), currency(0, { formatWithSymbol: true, symbol: '£' }))
-      return total.format()
-    }
+    cart () { 
+      return this.$store.state.cart 
+    },
+    cartTotal () { return this.$store.getters.cartTotal.format() }
   },
   methods: {
-    totalPrice ({ qty, price }) {
-      return currency(price.amount, { formatWithSymbol: true, symbol: '£' }).multiply(qty).format()
-    },
     async removeItem (itemId) {
-      await this.$store.commit('removeFromCart', itemId)
+      await this.$store.dispatch('removeFromCart', itemId)
       this.$notify({
         title: 'Item removed from cart',
         type: 'primary'
       })
+    },
+    async decreaseItemQty (item) {
+      if (item.qty === 1) return
+      const qty = item.qty - 1
+      await this.$store.dispatch('updateItemQty', { itemId: item.variantId, qty })
+    },
+    async increaseItemQty (item) {
+      const qty = item.qty + 1
+      await this.$store.dispatch('updateItemQty', { itemId: item.variantId, qty })
+    },
+    async updateItemQty (item, qty) {
+      if (qty <= 0) return
+      await this.$store.dispatch('updateItemQty', { itemId: item.variantId, qty })
     },
     async checkout () {
       const email = this.email

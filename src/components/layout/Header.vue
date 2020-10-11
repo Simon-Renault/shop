@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import CartLink from '@/components/CartLink.vue'
-import Burger from '@/components/Burger.vue'
+import CartLink from '@/components/cart/CartLink.vue'
+import Burger from '@/components/layout/Burger.vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -186,7 +186,7 @@ export default {
     cursor: pointer;
     height:50px;
     width:50px;
-    background-image: url("../assets/logo.jpg");
+    background-image: url("../../assets/logo.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 86%;
