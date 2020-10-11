@@ -1,7 +1,7 @@
 <template>
     <div class="centered">
         <h2>Your cart is empty</h2>
-        <p>To add item go to cart</p>
+        <p>To add artworks go to the shop</p>
         
         <g-link class="button" to="/shop">
           <span>Shop</span>

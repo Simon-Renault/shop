@@ -12,13 +12,13 @@
         <span class="name">{{ item.productTitle }}</span>
         <span>
             <span class="pill">{{item.variantTitle}}</span>
-            <span></span>
+            
         </span>
+        <span style="margin:10px 0 0">£{{item.price}}</span>
     </div>
 
 
     <div class="section ">
-        <span>Count :</span>
         <span class="counter">
             <button class="button"
                 @click="decreaseItemQty(item)"
@@ -43,7 +43,6 @@
 
 
     <div class="section">
-        <span>{{ item.price }}</span>
         <span>{{ item.total }}</span>
     </div>
 

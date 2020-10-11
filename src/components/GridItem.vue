@@ -12,9 +12,7 @@
                 <span class="subtitle">Category</span>
             </div>
         </div>
-
-       
-
+        
     </g-link>
 
 </template>
