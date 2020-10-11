@@ -23,6 +23,15 @@ module.exports = {
         storefrontToken: process.env.GRIDSOME_SHOPIFY_STOREFRONT_TOKEN
       }
     },
+    'gridsome-plugin-purgecss',
+    {
+      use: '@gridsome/plugin-critical',
+      options: {
+        paths: ['/', '/shop', '/shop/product/*','/about'],
+        width: 1300,
+        height: 900
+      }
+    },
     {
       use: '@gridsome/plugin-sitemap',
       options: {
