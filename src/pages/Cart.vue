@@ -18,11 +18,11 @@
         <CartCheckout/>
       </div>
      
-    </CenteredContainer>
+    </CenteredContainer> -->
 
     <CenteredContainer >
       <CartEmptyState/>
-    </CenteredContainer> -->
+    </CenteredContainer>
 
   </Layout>
 </template>
