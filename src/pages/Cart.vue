@@ -38,6 +38,9 @@ export default {
     CartItem,
     CartCheckout,
     CartEmptyState
+  },
+  mounted(){
+    console.log(this.$store.cart)
   }
 }
 
