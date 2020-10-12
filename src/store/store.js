@@ -62,25 +62,13 @@ export default function createStore(Vue, { isClient }){
 
     if (isClient) {
 
-        new VuexPersistence({
-            restoreState: key => Cookies.getJSON(key),
-            saveState: (key, { token }) => {
-            if (token) {
-                const expires = new Date(token.expiresAt)
-                Cookies.set(key, { token }, { expires })
-            } else {
-                Cookies.set(key, { token })
-            }
-            },
-            modules: ['token'],
-            filter: mutation => mutation.type === 'setToken'
-      }).plugin(store)
+       
 
     
         new VuexPersistence({
           storage: window.localStorage,
-          modules: ['cart'],
-          filter: mutation => mutation.type === 'updateCart'
+          //modules: ['cart'],
+          //filter: mutation => mutation.type === 'updateCart'
         }).plugin(store)
     }
     

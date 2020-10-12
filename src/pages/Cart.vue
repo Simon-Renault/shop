@@ -1,7 +1,7 @@
 <template>
   <Layout>
 
-    <CenteredContainer v-if="$store.state.cart.length > 1">
+    <CenteredContainer v-if="$store.state.cart.length > 0">
       <div class="cart-layout">
         <div class="cart-layout__list">
           <ul class="cart-layout__list__inner">
@@ -9,7 +9,7 @@
               
             </div>
           
-            <div v-for="(item,index) in $store.state.cart" :key="index + '-item'">{{item}}</div>
+            <!-- <div v-for="(item,index) in $store.state.cart" :key="index + '-item'">{{item}}</div> -->
             <!-- <CartItem v-for="item in $store.state.cart" 
                 :item="item" 
                 :key="item.variantId"/> -->
