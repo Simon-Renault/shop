@@ -49,39 +49,45 @@ export default {
   },
   async mounted () {
 
-    const  { data : {productByHandle : {variants:{edges}}}} = await this.$apollo.query({
-      query: gql`
-        query($handle: String!) {
-          productByHandle(handle: $handle) {
-            handle
-            variants(first: 10) {
-              edges {
-                node {
-                  id
-                  price 
-                  title
-                  image {
-                    transformedSrc(maxHeight:200,maxWidth:200)
-                  }
-                  availableForSale
-                  quantityAvailable
-                  selectedOptions{
-                    name
-                    value
+    this.$nextTick(async () => {
+
+      const  { data : {productByHandle : {variants:{edges}}}} = await this.$apollo.query({
+        query: gql`
+          query($handle: String!) {
+            productByHandle(handle: $handle) {
+              handle
+              variants(first: 10) {
+                edges {
+                  node {
+                    id
+                    price 
+                    title
+                    image {
+                      transformedSrc(maxHeight:200,maxWidth:200)
+                    }
+                    availableForSale
+                    quantityAvailable
+                    selectedOptions{
+                      name
+                      value
+                    }
                   }
                 }
               }
             }
           }
+        `,
+        variables : {
+          handle : this.product.handle
         }
-      `,
-      variables : {
-        handle : this.product.handle
-      }
+      })
+
+      this.variants = edges.map(e=>e.node)
+      this.setSelectedVariant(this.variants[0])
+
     })
 
-    this.variants = edges.map(e=>e.node)
-    this.setSelectedVariant(this.variants[0])
+   
 
   },
   methods: {
