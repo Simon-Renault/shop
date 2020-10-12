@@ -40,7 +40,8 @@ export default {
     CartEmptyState
   },
   mounted(){
-    console.log(this.$store.cart)
+    console.log('mounted')
+    console.log(this.$store.state.cart)
   }
 }
 
