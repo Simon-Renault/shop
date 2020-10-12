@@ -1,6 +1,6 @@
 <template>
   <Layout>
-
+  
     <CenteredContainer v-if="cart.length > 0">
       <div class="cart-layout">
         <div class="cart-layout__list">
@@ -9,10 +9,10 @@
               
             </div>
           
-            <!-- <div v-for="(item,index) in $store.state.cart" :key="index + '-item'">{{item}}</div> -->
-            <CartItem v-for="item in cart" 
+            <div v-for="(item,index) in $store.state.cart" :key="index + '-item'">{{item}}</div>
+            <!-- <CartItem v-for="item in cart" 
                 :item="item" 
-                :key="item.variantId"/>
+                :key="item.variantId"/> -->
           </ul>
           
         </div>
@@ -22,7 +22,7 @@
      
     </CenteredContainer>
 
-    <CenteredContainer>
+    <CenteredContainer v-else>
       <CartEmptyState/>
     </CenteredContainer>
 
@@ -45,7 +45,7 @@ export default {
   },
   beforeCreate(){
     console.log('mounted')
-    console.log(this.$store.state.cart)
+    console.log(this.cart)
   }
 }
 
