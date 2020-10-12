@@ -10,9 +10,9 @@
             </div>
           
             <!-- <div v-for="(item,index) in $store.state.cart" :key="index + '-item'">{{item}}</div> -->
-            <!-- <CartItem v-for="item in $store.state.cart" 
+            <CartItem v-for="item in cart" 
                 :item="item" 
-                :key="item.variantId"/> -->
+                :key="item.variantId"/>
           </ul>
           
         </div>
