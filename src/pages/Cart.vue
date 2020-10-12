@@ -1,7 +1,7 @@
 <template>
   <Layout>
   
-    <CenteredContainer v-if="cart.length > 0">
+    <CenteredContainer v-show="cart.length > 0">
       <div class="cart-layout">
         <div class="cart-layout__list">
           <ul class="cart-layout__list__inner">
@@ -22,7 +22,7 @@
      
     </CenteredContainer>
 
-    <CenteredContainer v-else>
+    <CenteredContainer v-show="!cart.length > 0">
       <CartEmptyState/>
     </CenteredContainer>
 
