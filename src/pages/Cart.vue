@@ -22,7 +22,7 @@
      
     </CenteredContainer>
 
-    <CenteredContainer v-else>
+    <CenteredContainer>
       <CartEmptyState/>
     </CenteredContainer>
 
@@ -40,7 +40,7 @@ export default {
     CartCheckout,
     CartEmptyState
   },
-  mounted(){
+  beforeCreate(){
     console.log('mounted')
     console.log(this.$store.state.cart)
   }
