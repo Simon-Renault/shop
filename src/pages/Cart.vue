@@ -9,7 +9,7 @@
               
             </div>
           
-            <div v-for="(item,index) in $store.state.cart" :key="index + '-item'">{{item}}</div>
+            <!-- <div v-for="(item,index) in $store.state.cart" :key="index + '-item'">{{item}}</div> -->
             <!-- <CartItem v-for="item in cart" 
                 :item="item" 
                 :key="item.variantId"/> -->
@@ -43,8 +43,16 @@ export default {
   computed: {
     cart () { return this.$store.state.cart }
   },
-  beforeCreate(){
+  mounted(){
     console.log('mounted')
+    console.log(this.cart)
+    this.$nextTick(() => {
+      console.log('next tick')
+      console.log(this.cart)
+    })
+  },
+  beforeCreate(){
+    console.log('before create')
     console.log(this.cart)
   }
 }
