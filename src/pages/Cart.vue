@@ -1,7 +1,7 @@
 <template>
   <Layout>
 
-    <CenteredContainer >
+    <!-- <CenteredContainer >
       <div class="cart-layout">
         <div class="cart-layout__list">
           <ul class="cart-layout__list__inner">
@@ -22,7 +22,7 @@
 
     <CenteredContainer >
       <CartEmptyState/>
-    </CenteredContainer>
+    </CenteredContainer> -->
 
   </Layout>
 </template>
