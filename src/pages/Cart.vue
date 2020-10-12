@@ -1,7 +1,7 @@
 <template>
   <Layout>
 
-    <CenteredContainer v-if="$store.state.cart.length > 0">
+    <CenteredContainer v-if="cart.length > 0">
       <div class="cart-layout">
         <div class="cart-layout__list">
           <ul class="cart-layout__list__inner">
@@ -39,6 +39,9 @@ export default {
     CartItem,
     CartCheckout,
     CartEmptyState
+  },
+  computed: {
+    cart () { return this.$store.state.cart }
   },
   beforeCreate(){
     console.log('mounted')
