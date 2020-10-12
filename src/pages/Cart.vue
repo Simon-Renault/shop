@@ -1,16 +1,17 @@
 <template>
   <Layout>
 
-    <!-- <CenteredContainer >
+    <CenteredContainer >
       <div class="cart-layout">
         <div class="cart-layout__list">
           <ul class="cart-layout__list__inner">
             <div class="legend">
               
             </div>
-            <CartItem v-for="item in $store.state.cart" 
+            <div v-for="item in $store.state.cart" :key="item.variantId">{{item}}</div>
+            <!-- <CartItem v-for="item in $store.state.cart" 
                 :item="item" 
-                :key="item.variantId"/>
+                :key="item.variantId"/> -->
           </ul>
           
         </div>
@@ -18,7 +19,7 @@
         <CartCheckout/>
       </div>
      
-    </CenteredContainer> -->
+    </CenteredContainer>
 
     <CenteredContainer >
       <CartEmptyState/>
