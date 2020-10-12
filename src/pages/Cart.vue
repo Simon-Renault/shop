@@ -8,7 +8,7 @@
             <div class="legend">
               
             </div>
-            <div v-for="item in $store.state.cart" :key="item.variantId">{{item}}</div>
+            <!-- <div v-for="item in $store.state.cart" :key="item.variantId">{{item}}</div> -->
             <!-- <CartItem v-for="item in $store.state.cart" 
                 :item="item" 
                 :key="item.variantId"/> -->
