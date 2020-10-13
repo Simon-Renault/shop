@@ -24,7 +24,7 @@
       <CartEmptyState/>
     </CenteredContainer>
 
-    ddd
+
 
   </Layout>
 </template>
