@@ -4,15 +4,15 @@
     <CenteredContainer v-show="cart.length > 0">
       <div class="cart-layout">
         <div class="cart-layout__list">
-          <ul class="cart-layout__list__inner">
+          <div class="cart-layout__list__inner">
             <div class="legend">
               
             </div>
-            <div v-for="item in cart" :key="item.variantId">{{item}}</div>
+            <div v-for="(item,index) in cart" :key="index + 'i'">{{item}}</div>
             <!-- <CartItem v-for="item in cart" 
                 :item="item" 
                 :key="item.variantId"/> -->
-          </ul>
+          </div>
           
         </div>
        
