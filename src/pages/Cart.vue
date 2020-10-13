@@ -8,7 +8,7 @@
             <div class="legend">
               
             </div>
-            <!-- <div v-for="(item,index) in cart" :key="index + 'i'">{{item}}</div> -->
+            
             <!-- <CartItem v-for="item in cart" 
                 :item="item" 
                 :key="item.variantId"/> -->
@@ -20,6 +20,8 @@
       </div>
      
     </CenteredContainer>
+
+    <div v-for="(item,index) in cart" :key="index + 'i'">{{item}}</div>
 
     <CenteredContainer v-show="!cart.length > 0">
       <CartEmptyState/>
@@ -42,19 +44,7 @@ export default {
     CartEmptyState
   },
   computed: {
-    cart () { return this.$store.state.cart }
-  },
-  mounted(){
-    console.log('mounted')
-    console.log(this.cart)
-    this.$nextTick(() => {
-      console.log('next tick')
-      console.log(this.cart)
-    })
-  },
-  beforeCreate(){
-    console.log('before create')
-    console.log(this.cart)
+    cart () { return this.$store.state.cart || []}
   }
 }
 
