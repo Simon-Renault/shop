@@ -66,9 +66,15 @@ module.exports = {
     {
       use: 'gridsome-plugin-service-worker',
       options: {
-        staleWhileRevalidate: {
-          cacheName: 'static-resources',
-          routes: [/\.(?:css)$/]
+        networkFirst: {
+          cacheName: "nf-v1",
+          fileTypes: [
+            "document", // includes HTML files
+            "image",
+            "font",
+            "script",
+            "style"
+          ]
         }
       }
     }
