@@ -8,9 +8,10 @@
             <div class="legend">
               
             </div>
-            <CartItem v-for="item in cart" 
+            <div v-for="item in cart" :key="item.variantId">{{item}}</div>
+            <!-- <CartItem v-for="item in cart" 
                 :item="item" 
-                :key="item.variantId"/>
+                :key="item.variantId"/> -->
           </ul>
           
         </div>
