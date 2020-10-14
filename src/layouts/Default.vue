@@ -27,7 +27,7 @@ export default {
         console.log(cart)
         this.$store.commit("updateCart",cart)
     })
-  },
+  }
 }
 </script>
 

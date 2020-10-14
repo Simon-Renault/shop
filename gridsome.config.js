@@ -65,21 +65,21 @@ module.exports = {
         theme_color: '#000000',
         lang: 'en'
       }
+    },
+    {
+      use: 'gridsome-plugin-service-worker',
+      options: {
+        cacheFirst: {
+          cacheName: "nf-v1",
+          fileTypes: [
+            "document", // includes HTML files
+            "image",
+            "font",
+            "script",
+            "style"
+          ]
+        }
+      }
     }
-    // {
-    //   use: 'gridsome-plugin-service-worker',
-    //   options: {
-    //     networkFirst: {
-    //       cacheName: "nf-v1",
-    //       fileTypes: [
-    //         "document", // includes HTML files
-    //         "image",
-    //         "font",
-    //         "script",
-    //         "style"
-    //       ]
-    //     }
-    //   }
-    // }
   ]
 }
