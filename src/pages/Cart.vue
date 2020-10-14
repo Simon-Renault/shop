@@ -27,6 +27,9 @@
     </CenteredContainer>
 
 
+    <button @click="loadState">load</button>
+
+
 
   </Layout>
 </template>
@@ -41,6 +44,11 @@ export default {
     CartItem,
     CartCheckout,
     CartEmptyState
+  },
+  methods:{
+    loadState(){
+      this.$store.commit("updateCart",localStorage.getItem("cart"))
+    }
   },
   computed: {
     cart () { return this.$store.state.cart || []}

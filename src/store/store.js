@@ -60,14 +60,12 @@ export default function createStore(Vue, { isClient }){
         }
     })
 
-    if (isClient) {
-    
-        new VuexPersistence({
-          storage: window.localStorage,
-          modules: ['cart'],
-          filter: mutation => mutation.type === 'updateCart'
-        }).plugin(store)
-    }
+
+    store.subscribe((mutation, state) => {
+        localStorage.setItem("cart",state.cart)
+    })
+
+   
     
     return store
 }
