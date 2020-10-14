@@ -45,18 +45,6 @@ export default {
     CartCheckout,
     CartEmptyState
   },
-  methods:{
-    loadState(){
-      const cart = JSON.parse(localStorage.getItem("cart"))
-      console.log(cart)
-      this.$store.commit("updateCart",cart)
-    }
-  },
-  mounted(){
-    this.$nextTick(() => {
-      this.loadState()
-    })
-  },
   computed: {
     cart () { return this.$store.state.cart || []}
   }

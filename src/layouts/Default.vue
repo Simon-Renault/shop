@@ -21,6 +21,13 @@ export default {
     Header,
     Footer
   },
+  mounted(){
+    this.$nextTick(() => {
+        const cart = JSON.parse(localStorage.getItem("cart"))
+        console.log(cart)
+        this.$store.commit("updateCart",cart)
+    })
+  },
 }
 </script>
 
