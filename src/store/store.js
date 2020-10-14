@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import VuexPersistence from 'vuex-persist'
 import currency from 'currency.js'
-import Cookies from 'js-cookie'
+import cookie from 'cookie'
 
 export default function createStore(Vue, { isClient }){
     Vue.use(Vuex)
@@ -60,17 +60,18 @@ export default function createStore(Vue, { isClient }){
         }
     })
 
+    store.subscribe((mutation, state) => {
+        if (mutation.type === 'setToken') {
+          const authCookie = cookie.serialize('shopifyToken', state.token, { maxAge: 432000 })
+          document.cookie = authCookie
+        }
+    })
+        
     if (isClient) {
-
-       
-
-    
-        new VuexPersistence({
-          storage: window.localStorage,
-          //modules: ['cart'],
-          //filter: mutation => mutation.type === 'updateCart'
-        }).plugin(store)
+        const { shopifyToken } = cookie.parse(document.cookie)
+        if (shopifyToken) store.dispatch('login', shopifyToken)
     }
+
     
     return store
 }

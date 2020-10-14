@@ -21,7 +21,6 @@
      
     </CenteredContainer>
 
-    <div v-for="(item,index) in cart" :key="index + 'i'">{{item}}</div>
 
     <CenteredContainer v-show="!cart.length > 0">
       <CartEmptyState/>
