@@ -27,7 +27,7 @@
     </CenteredContainer>
 
 
-    <button @click="loadState">load</button>
+
 
 
 
