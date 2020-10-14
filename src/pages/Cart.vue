@@ -47,7 +47,9 @@ export default {
   },
   methods:{
     loadState(){
-      this.$store.commit("updateCart",localStorage.getItem("cart"))
+      const cart = JSON.parse(localStorage.getItem("cart"))
+      console.log(cart)
+      this.$store.commit("updateCart",cart)
     }
   },
   computed: {
