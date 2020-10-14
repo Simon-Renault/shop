@@ -62,7 +62,7 @@ export default function createStore(Vue, { isClient }){
 
 
     store.subscribe((mutation, state) => {
-        localStorage.setItem("cart",state.cart)
+        localStorage.setItem("cart",JSON.stringify(state.cart))
     })
 
    
