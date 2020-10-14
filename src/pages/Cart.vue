@@ -52,6 +52,9 @@ export default {
       this.$store.commit("updateCart",cart)
     }
   },
+  mounted(){
+    this.loadState()
+  },
   computed: {
     cart () { return this.$store.state.cart || []}
   }
