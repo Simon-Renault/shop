@@ -69,14 +69,11 @@ module.exports = {
     {
       use: 'gridsome-plugin-service-worker',
       options: {
-        cacheFirst: {
-          cacheName: "nf-v1",
+        networkFirst: {
+          cacheName: "xx-dd",
           fileTypes: [
-            "document", // includes HTML files
             "image",
-            "font",
-            "script",
-            "style"
+            "font"
           ]
         }
       }

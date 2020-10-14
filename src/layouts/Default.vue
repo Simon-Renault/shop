@@ -23,9 +23,9 @@ export default {
   },
   mounted(){
     this.$nextTick(() => {
-        const cart = JSON.parse(localStorage.getItem("cart"))
-        console.log(cart)
-        this.$store.commit("updateCart",cart)
+      const cart = JSON.parse(localStorage.getItem("cart"))
+      console.log(cart)
+      this.$store.commit("updateCart",cart)
     })
   }
 }
