@@ -60,14 +60,17 @@ export default function createStore(Vue, { isClient }){
         }
     })
 
+    if (isClient) {
 
-    store.subscribe((mutation, state) => {
+        store.subscribe((mutation, state) => {
 
-        if(mutation.type === 'updateCart'){
-            localStorage.setItem("cart",JSON.stringify(state.cart))
-        }
+            if(mutation.type === 'updateCart'){
+                localStorage.setItem("cart",JSON.stringify(state.cart))
+            }
+            
+        })
         
-    })
+    }
 
    
     

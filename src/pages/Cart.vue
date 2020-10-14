@@ -53,7 +53,9 @@ export default {
     }
   },
   mounted(){
-    this.loadState()
+    this.$nextTick(() => {
+      this.loadState()
+    })
   },
   computed: {
     cart () { return this.$store.state.cart || []}
