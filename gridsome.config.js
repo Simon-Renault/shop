@@ -2,6 +2,9 @@ module.exports = {
   siteName: 'Simon Renault - Drawing',
   siteDescription: 'The shop and portfolio of the french artist Simon Renault. Detailed city drawings',
   siteUrl: 'https://simon-renault.art',
+  chainWebpack (config) {
+    config.mode('development')
+  },
   templates: {
     Drawings: [
       {
