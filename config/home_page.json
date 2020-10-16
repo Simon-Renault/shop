@@ -19,13 +19,11 @@
     },
     {
       "template": "home-page-tile",
-      "drawing_link": [
-
-      ],
+      "drawing_link": "config/drawings/best.md",
       "title": "Sky city",
       "sizing": "VERTICAL",
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/flying.jpg",
-      "is_interactive": false
+      "is_interactive": true
     },
     {
       "template": "home-page-tile",
