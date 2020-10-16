@@ -93,6 +93,7 @@ module.exports = async (api) => {
 
             const matchingProduct = ShopifyProduct.find(p => p.handle === drawing.shopify_referance)
             const content = md.render(drawing.__content)
+
             DrawingCollection.addNode({
                 name : drawing.name,
                 slug : generateSlug(drawing.name),
@@ -101,6 +102,7 @@ module.exports = async (api) => {
                 content : content,
                 product : matchingProduct ? actions.createReference(matchingProduct) : ''
             })
+
         })
 
 
@@ -112,6 +114,7 @@ module.exports = async (api) => {
                 const fileJson =  yamlFront.loadFront(fs.readFileSync('./'+item.drawing_link))
                 const name = generateSlug(fileJson.name)
                 matchingDrawing = actions.getCollection("Drawings").data().find(drawing => generateSlug(drawing.name) === name)
+                console.log(matchingDrawing)
             }
 
             HomePageFeaturedItems.addNode({

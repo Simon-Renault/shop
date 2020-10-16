@@ -1,6 +1,6 @@
 <template>
 
-    <g-link class="v-grid-item hidden "  :to="`shop/product/${item.id}`" :class="item.sizing"  :style="{'animation-delay':delay+'ms'}" >
+    <g-link class="v-grid-item hidden "  :to="`shop/product/${item.drawing_id}`" :class="item.sizing"  :style="{'animation-delay':delay+'ms'}" >
 
         <LazyImage class="v-grid-item__img" :shouldLoad="isVisible" :src="item.cover_image" :alt="item.title"/>
 
@@ -12,7 +12,7 @@
                 <span class="subtitle">Category</span>
             </div>
         </div>
-        
+
     </g-link>
 
 </template>
