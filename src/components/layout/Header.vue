@@ -9,7 +9,7 @@
         </g-link>
 
         <div class="mobile-nav">
-            <!-- <CartLink @click="hideNav" v-if="cart.length >= 1"/> -->
+            <CartLink @click="hideNav" v-if="cart.length >= 1"/>
             <Burger @click="toggleNav" :isOpen="isNavVisible"/>
         </div>
        
@@ -208,6 +208,12 @@ export default {
 
 .mobile-nav{
   display:flex;
+  .link{
+    padding:0;
+    span{
+      height: initial;
+    }
+  }
   @media screen and (min-width: 800px) {
      display: none;
   }
