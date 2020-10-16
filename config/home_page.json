@@ -3,7 +3,7 @@
   "grid_config": [
     {
       "template": "home-page-tile",
-      "drawing_link": "",
+      "drawing_link": "config/drawings/drawing1.md",
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/crazy_city.jpg",
       "sizing": "SQUARE",
       "title": "Polis",
