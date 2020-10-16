@@ -42,6 +42,8 @@ export default {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   padding: calc(var(--header-height) + 20px) 0 0 0;
   @media screen and (min-width: 1130px) {
