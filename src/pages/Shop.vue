@@ -11,7 +11,7 @@
           class="drawing">
 
           <article>
-            <LazyImage class="v-grid-item__img" :shouldLoad="true" :src="drawing.product.images[0].transformedSrc" alt="alt"/>
+            <LazyImage class="v-grid-item__img" :shouldLoad="true"  ratio="100%" :src="drawing.product.images[0].transformedSrc" alt="alt"/>
             <h3>{{drawing.name}}</h3>
             <p>{{drawing.product.priceRange.minVariantPrice.amount}}£ - {{drawing.product.priceRange.maxVariantPrice.amount}}£</p>
           </article>
@@ -122,6 +122,8 @@ query($page: Int){
 
 .drawing{
   transition: all .3s ease;
+  position: relative;
+
   img{
     border-radius: 3px;
   }
