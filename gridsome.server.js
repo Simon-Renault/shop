@@ -114,7 +114,7 @@ module.exports = async (api) => {
                 const fileJson =  yamlFront.loadFront(fs.readFileSync('./'+item.drawing_link))
                 const name = generateSlug(fileJson.name)
                 matchingDrawing = actions.getCollection("Drawings").data().find(drawing => generateSlug(drawing.name) === name)
-                console.log(matchingDrawing)
+                console.log(matchingDrawing.internal.publicPath)
             }
 
             HomePageFeaturedItems.addNode({

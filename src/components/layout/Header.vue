@@ -16,9 +16,9 @@
         <div class="nav" @click="hideNav" :class="{show:isNavVisible}">
           <nav>
 
-            <g-link @click="hideNav" class="link" to="/"><span>Gallery</span></g-link>
-            <g-link @click="hideNav" class="link" to="/shop"><span>Shop</span></g-link>
-            <g-link @click="hideNav" class="link" to="/about"><span>About</span></g-link>
+            <g-link @click="hideNav" class="link match-exact" to="/"><span>Gallery</span></g-link>
+            <g-link @click="hideNav" class="link match" to="/shop"><span>Shop</span></g-link>
+            <g-link @click="hideNav" class="link match" to="/about"><span>About</span></g-link>
             <hr class="separator"/>
             <CartLink  @click="hideNav" />
 
@@ -104,7 +104,12 @@ export default {
       background: var(--light-grey);
     }
   }
-  &.active--exact{
+  &.match-exact.active--exact{
+    span{
+      background: var(--light-grey);
+    }
+  }
+  &.match.active{
     span{
       background: var(--light-grey);
     }
