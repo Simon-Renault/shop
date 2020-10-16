@@ -79,7 +79,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .link {
   color: var(--black);
   position: relative;
@@ -98,7 +98,6 @@ export default {
       padding-right:0;
     }
   }
- 
   &:hover{
     span{
       background: var(--light-grey);
@@ -206,18 +205,7 @@ export default {
   }
 }
 
-.mobile-nav{
-  display:flex;
-  .link{
-    padding:0;
-    span{
-      height: initial;
-    }
-  }
-  @media screen and (min-width: 800px) {
-     display: none;
-  }
-}
+
 .nav {
     height: 35px;
     display: none;
@@ -301,5 +289,12 @@ export default {
       justify-content: center;
       align-items: center;
     }
+}
+
+.mobile-nav{
+  display:flex;
+  @media screen and (min-width: 800px) {
+     display: none;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-   <g-link class="link" to="/cart">
+   <g-link class="link match" to="/cart">
         <span>
             <shopping-cart-icon size="1x" class="custom-class"></shopping-cart-icon>
             <div class="indicator" >{{ cart.length }}</div>
@@ -25,46 +25,9 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .link{
-  position: relative;
-    display: inline-flex;
-    align-items: center;
-    vertical-align: middle;
-    height: 100%;
-    padding: 0 10px;
-    color: #212121;
-    font-size: 16px;
-    line-height: 24px;
-    box-sizing: border-box;
-    font-weight: 500;
   &:hover,&.active{
-    & > span{
-       background: var(--light-grey);
-    }
-  }
-  & > span{
-    position: relative;
-    display: inline-flex;
-    vertical-align: top;
-    align-items: center;
-    padding: 5px 10px;
-    transition: all .3s ease;
-    line-height: 35px;
-    border-radius: 3px;
-    height:35px;
-    svg{
-      margin:0 0 2px 0;
-    }
-  }
-  @media screen and (max-width: 800px) {
-    margin: 0 5px;
-    &  span{
-      width: 100%;
-      height:60px;
-    }
-  }
-  &:hover,&.active--exact{
     .indicator{
       color: black;
       background: white;
