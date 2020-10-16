@@ -11,13 +11,11 @@
     },
     {
       "template": "home-page-tile",
-      "drawing_link": [
-
-      ],
+      "drawing_link": "config/drawings/polis-3.md",
       "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/farm.jpg",
       "title": "Farm of the wind",
       "sizing": "CLASSIC",
-      "is_interactive": false
+      "is_interactive": true
     },
     {
       "template": "home-page-tile",
