@@ -14,19 +14,19 @@ export default {
     components : {
         MenuIcon,
         XIcon
-    },
+    }
 }
 </script>
 
 <style lang="scss" scoped>
 .burger{
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     height:35px;
     padding: 0 10px;
     border-radius: 3px;
-    cursor: pointer;
     &:hover{
         background: var(--light-grey);
     }

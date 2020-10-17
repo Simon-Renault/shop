@@ -1,12 +1,12 @@
 <template>
     <div class="centered">
-        <h2>Your cart is empty</h2>
-        <p>To add artworks go to the shop</p>
-        
-        <g-link class="button" to="/shop">
-          <span>Shop</span>
-          <shopping-cart-icon size="1x" class="custom-class"></shopping-cart-icon>
-        </g-link>
+      <h2>Your cart is empty</h2>
+      <p>To add artworks go to the shop</p>
+      
+      <g-link class="button" to="/shop">
+        <span>Shop</span>
+        <shopping-cart-icon size="1x" class="custom-class"></shopping-cart-icon>
+      </g-link>
 
     </div>
 </template>

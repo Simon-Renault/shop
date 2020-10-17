@@ -5,7 +5,8 @@
       <div class="top">
 
         <div class="galery">
-          <figure></figure>
+          <LazyImage class="v-grid-item__img" :shouldLoad="true" ratio="100%" :src="drawing.product.images[0].src" :alt="drawing.title"/>
+
         </div>
 
         <Shopper v-if="product" :product="product"/>
@@ -80,7 +81,7 @@ query Drawing ($id: ID!) {
       images(limit: 4) {
         id
         altText
-        src: transformedSrc(maxWidth: 600, maxHeight: 400, crop: CENTER)
+        src: transformedSrc(maxWidth: 1000, maxHeight: 1000, crop: CENTER)
         thumbnail: transformedSrc(maxWidth: 150, maxHeight: 150, crop: CENTER)
       }
       variants {
@@ -114,24 +115,6 @@ query Drawing ($id: ID!) {
   }
   grid-template-columns: 1.5fr 1fr;
   grid-gap: 60px;
-  .galery{
-    position: relative;
-   
-    padding-bottom: 100%;
-    figure{
-      position: absolute;
-      top:0;
-      right:0;
-      left:0;
-      bottom: 0;
-      background: #f3f3f3;
-      background-size: 130%; 
-      background-repeat: no-repeat;
-      background-position: center;
-      background-image: url("https://cdn.shopify.com/s/files/1/0359/0160/3976/products/mock_drawing_horizontal_33d7e671-1d58-4393-9b17-d634793faa43.jpg?v=1601826178");
-      border-radius: 3px;
-    }
-  }
 }
 
 

@@ -1,11 +1,11 @@
 <template>
-    <header class="header" :class="{sticked:isOpen}" >
+    <header class="header" :class="{sticked:isOpen,isNotTop:!isTop}" >
 
       <div class="header__inner">
 
         <g-link class="hero" to="/">
           <div class="logo"></div>
-          <h1 class="title">Simon Renault</h1>
+          <h1 class="title">Simon Renault {{isTop}}</h1>
         </g-link>
 
         <div class="mobile-nav">
@@ -44,7 +44,8 @@ export default {
   },
   data : () => ({
     isNavVisible : false,
-    isOpen : false
+    isOpen : false,
+    isTop : true
   }),
   computed:{
       cart () { return this.$store.state.cart },
@@ -68,8 +69,11 @@ export default {
       onUpdate: self => {
 
         if(window.scrollY > 100){
+          this.isTop = false
           if(self.getVelocity() >= 1 && !this.isOpen)this.isOpen = true
           if(self.getVelocity() <= -1 && this.isOpen) this.isOpen = false
+        }else{
+          this.isTop = true
         }
 
       }
@@ -88,7 +92,7 @@ export default {
   vertical-align: middle;
   height: 100%;
   padding: 0 10px;
-  color: #212121;
+  color: var(--accents-5);
   font-size: 16px;
   line-height: 24px;
   box-sizing: border-box;
@@ -99,16 +103,19 @@ export default {
     }
   }
   &:hover{
+    color: var(--black);
     span{
       background: var(--light-grey);
     }
   }
   &.match-exact.active--exact{
+    color: var(--black);
     span{
       background: var(--light-grey);
     }
   }
   &.match.active{
+    color: var(--black);
     span{
       background: var(--light-grey);
     }
@@ -141,7 +148,11 @@ export default {
     border-bottom: 1px solid var(--light-grey);
     display: flex;
     justify-content: center;
+   
     z-index: 999;
+    &.isNotTop:not(.sticked){
+      box-shadow: var(--header-shadow );
+    }
     &.sticked{
       transform: translate(0,-100%);
     }
