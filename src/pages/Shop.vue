@@ -5,7 +5,7 @@
        <div class="product-grid">
 
         <g-link
-          v-for="({node:drawing},index) in drawings"
+          v-for="({node:drawing},index) in $page.allDrawings.edges"
           :key="index + '-drawing'"
           :to="`shop/product/${drawing.id}`"
           class="drawing">
@@ -34,34 +34,6 @@ import slugify from "slugify"
 export default {
   metaInfo: {
     title: 'Shop'
-  },
-  methods : {
-    slugify(string){
-      return slugify(string,{
-        replacement: '-',  
-        remove: undefined, 
-        lower: true,      
-        strict: true    
-      })
-    }
-  },
-  computed: {
-    variants (){ 
-      const variants = this.$page.allDrawings.edges.map(x => x.node.product.variants.map(v => v.selectedOptions.map(s => s))).flat(2)
-      const variantTypes = [...new Set(variants.map(v => v.name))]
-
-      const variantCombinations = variantTypes.map(vt => {
-        const _variants = variants.filter(v=> v.name === vt)
-          return {
-            name : vt,
-            possibleValues : [...new Set(_variants.map(v => v.value))]
-          }
-      })
-
-      return variantCombinations
-    },
-    drawings () { return this.$page.allDrawings.edges},
-    first () { return this.$page.allDrawings.edges[0]}
   }
 }
 </script>
@@ -116,14 +88,13 @@ query($page: Int){
 .product-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 50px;
+  grid-gap: 30px;
   margin: 0 0 100px;
 }
 
 .drawing{
   transition: all .3s ease;
   position: relative;
-
   img{
     border-radius: 3px;
   }

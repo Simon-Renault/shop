@@ -5,7 +5,7 @@
 
         <g-link class="hero" to="/">
           <div class="logo"></div>
-          <h1 class="title">Simon Renault {{isTop}}</h1>
+          <h1 class="title">Simon Renault</h1>
         </g-link>
 
         <div class="mobile-nav">
