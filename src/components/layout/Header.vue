@@ -16,8 +16,9 @@
         <div class="nav" @click="hideNav" :class="{show:isNavVisible}">
           <nav>
 
-            <g-link @click="hideNav" class="link match-exact" to="/"><span>Gallery</span></g-link>
+            <g-link @click="hideNav" class="link match-exact" to="/"><span>Home</span></g-link>
             <g-link @click="hideNav" class="link match" to="/shop"><span>Shop</span></g-link>
+            <g-link @click="hideNav" class="link match" to="/gallery"><span>Gallery</span></g-link>
             <g-link @click="hideNav" class="link match" to="/about"><span>About</span></g-link>
             <hr class="separator"/>
             <CartLink  @click="hideNav" />
@@ -93,10 +94,11 @@ export default {
   height: 100%;
   padding: 0 10px;
   color: var(--accents-5);
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   box-sizing: border-box;
   font-weight: 500;
+  text-transform: uppercase;
   @media screen and (min-width: 800px) {
     &:last-child{
       padding-right:0;
@@ -161,7 +163,7 @@ export default {
       display: flex;
       align-items: center;
       width: 100%;
-      max-width: 1430px;
+      max-width: 1500px;
       padding: 0 20px 0;
       @media screen and (min-width: 900px) {
         padding: 20px 70px 20px;
@@ -173,7 +175,9 @@ export default {
       margin-right:auto;
       .title{
         display: block;
-        font-size: 18px;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: uppercase;
         margin: 0 0 0 15px;
         color: black;
       }

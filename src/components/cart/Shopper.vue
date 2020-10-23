@@ -1,9 +1,8 @@
 <template>
     <div class="shopper">
-        <h1>A nice title</h1>
+        <h1>{{product.title}}</h1>
         <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut eiatur. 
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        Ut</p>
 
         <div class="variants" v-if="!variants">
             <Skeleton class="variant" width="100%" />
@@ -12,21 +11,15 @@
         </div>
 
         <div  class="variants" v-if="variants">
-            <div  class="variant" 
+          <h3>Prints :</h3>
+          <p>Limited edtion print series on archival paper</p>
+          <br>
+          <br>
+          <h3>Original :</h3> 
+          <p>The only orginal drawing</p>
+           
+        </div>
 
-                  :class="{'selected' :variant.id === selecteVariant.id }"
-                  v-for="variant in variants" 
-                  :key="variant.id"
-                  @click="setSelectedVariant(variant)">
-              {{variant.title}} - {{variant.price}}£ -{{variant.quantityAvailable}}
-
-            </div>
-          </div>
-          
-        <button @click="addToCart" 
-                @keyup.enter="addToCart">
-          Add to cart
-        </button>
 
     </div>
 </template>

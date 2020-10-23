@@ -5,7 +5,7 @@
       <div class="top">
 
         <div class="galery">
-          <LazyImage class="v-grid-item__img" :shouldLoad="true" ratio="100%" :src="drawing.product.images[0].src" :alt="drawing.title"/>
+          <LazyImage class="v-grid-item__img" v-if="drawing.product" :shouldLoad="true" ratio="100%" :src="drawing.product.images[0].src" :alt="drawing.title"/>
 
         </div>
 

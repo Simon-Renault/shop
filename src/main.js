@@ -46,7 +46,7 @@ export default function (Vue, {router, head, appOptions, isClient }) {
     if (to.hash) {
       return {selector: to.hash};
     }
-    if ((from.name == 'project' && to.name == 'project') || ((from.name == 'work' && to.name == 'project'))) {
+    if (true) {
       return window.scrollHeight
     }
     return {x: 0, y: 0}

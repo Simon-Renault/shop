@@ -2,7 +2,14 @@
   <Layout>
     <CenteredContainer>
 
-       <div class="product-grid">
+
+     
+      <div class="centered">
+        <h2>Shop</h2>
+        <p>A curated collection of my best work, handpicked every month. If you don't know where to start, this is the place to go.</p>
+      </div>
+
+      <div class="product-grid">
 
         <g-link
           v-for="({node:drawing},index) in $page.allDrawings.edges"
@@ -11,7 +18,7 @@
           class="drawing">
 
           <article>
-            <LazyImage class="v-grid-item__img" :shouldLoad="true"  ratio="100%" :src="drawing.product.images[0].transformedSrc" alt="alt"/>
+            <LazyImage class="v-grid-item__img" :shouldLoad="true"  ratio="100%" :src="drawing.product.images[0].src" alt="alt"/>
             <h3>{{drawing.name}}</h3>
             <p>{{drawing.product.priceRange.minVariantPrice.amount}}£ - {{drawing.product.priceRange.maxVariantPrice.amount}}£</p>
           </article>
@@ -40,7 +47,7 @@ export default {
 
 <page-query>
 query($page: Int){
-  allDrawings( perPage: 6 , page: $page , filter : { isForSale : {eq : true}})  @paginate {
+  allDrawings( perPage: 20 , page: $page , filter : { isForSale : {eq : true}})  @paginate {
     pageInfo {
       totalPages
       currentPage
@@ -57,7 +64,7 @@ query($page: Int){
           handle
           availableForSale
           images{
-            transformedSrc
+            src: transformedSrc(maxWidth: 1200, maxHeight: 1200, crop: CENTER)
           }
           priceRange{
             minVariantPrice{
@@ -76,13 +83,8 @@ query($page: Int){
 } 
 </page-query>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 
-.featured{
-  background-color: rgb(243, 243, 243);
-  height: 50vh;
-  margin: 0 0 100px;
-}
 
 
 .product-grid{
@@ -97,6 +99,7 @@ query($page: Int){
   position: relative;
   img{
     border-radius: 3px;
+    transform: scale(2.3);
   }
   &:hover{
     opacity: 0.6;
@@ -111,6 +114,52 @@ query($page: Int){
     margin: 5px 5px;
     color: var(--black);
     opacity: .5;
+  }
+}
+
+.centered{
+  position: relative;
+  margin: 0 auto 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 70%;
+  h2{
+    font-size: 50px;
+  }
+  p{
+    display: flex;
+    margin:auto;
+    max-width: 80%;
+    margin: 20px 0 0;
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: .6;
+  }
+  @media screen and (max-width: 600px) {
+    margin: 30px auto 70px;
+    max-width: 100%;
+    p{
+      max-width: 95%;
+    }
+    h2{
+      font-size: 40px;
+    }
+  }
+}
+.top{
+  border-radius: 3px;
+  background-color: var(--light-grey);
+  height:40vh;
+  margin: 0 0 100px 0;
+ 
+  &__inner{
+     padding:30px;
+     display:flex;
+     height:100%;
+     justify-content: center;
+     align-items: center;
   }
 }
 

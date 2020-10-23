@@ -1,6 +1,6 @@
 <template>
 
-    <g-link class="v-grid-item hidden "  :to="`shop/product/${item.drawing_id}`" :class="item.sizing"  :style="{'animation-delay':delay+'ms'}" >
+    <article class="v-grid-item hidden "  :class="item.sizing"  :style="{'animation-delay':delay+'ms'}" >
 
         <LazyImage class="v-grid-item__img" :shouldLoad="isVisible" :src="item.cover_image" :alt="item.title"/>
 
@@ -13,7 +13,7 @@
             </div>
         </div>
 
-    </g-link>
+    </article>
 
 </template>
 
@@ -70,7 +70,6 @@ export default {
 
 .v-grid-item{
     overflow: hidden;
-    cursor: pointer;
     position: relative;
     border-radius: 2px;
     &:not(.special){
@@ -160,19 +159,19 @@ export default {
         }
         background: var(--accents-2);
         &.HORIZONTAL{
-            padding-bottom: 50%;
+            padding-bottom: 40%;
             @media screen and (min-width: 600px) {
                 grid-column : span 2;
             }
         }
         &.VERTICAL{
-            padding-bottom: 200%;
+            padding-bottom: 100%;
             @media screen and (min-width: 600px) {
                 grid-row : span 2;
             }
         }
         &.SQUARE{
-            padding-bottom: 100%;
+            padding-bottom: 50%;
             @media screen and (min-width: 600px) {
                 grid-row : span 2;
                 grid-column : span 2;

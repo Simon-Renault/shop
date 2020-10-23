@@ -4,7 +4,7 @@
     <CenteredContainer class="project-grid">
 
       <div class="centered">
-        <h2>Simon Renault</h2>
+        <h2>Welcome</h2>
         <p>{{intro}}</p>
         
         <g-link class="button" to="/shop">
@@ -16,16 +16,39 @@
 
       <div class="grid">
 
-        <GridItem  class="special"  
-          :item="item" 
-          v-for="(item,index) in homePageItems"
-          :key="'grid-item'+index"/>
+        <GridItem  class="special" :item="homePageItems[0]" />
+        <GridItem  class="special" :item="homePageItems[1]" />
+        <GridItem  class="special not-odd" :item="homePageItems[2]" />
+        <GridItem  class="special" :item="homePageItems[3]" />
+
+      </div>
+
+      <div class="centered">
+        <h2>Featured drawings</h2>
+        <p>A curated collection of my best work, handpicked every month. If you don't know where to start, this is the place to go.</p>
+      </div>
+
+      <div class="product-grid">
+
+        <g-link
+          v-for="({node:drawing},index) in $page.allDrawings.edges"
+          :key="index + '-drawing'"
+          :to="`shop/product/${drawing.id}`"
+          class="drawing">
+
+          <article>
+            <LazyImage class="v-grid-item__img" :shouldLoad="true"  ratio="100%" :src="drawing.product.images[0].transformedSrc" alt="alt"/>
+            <h3>{{drawing.name}}</h3>
+            <p>{{drawing.product.priceRange.minVariantPrice.amount}}£ - {{drawing.product.priceRange.maxVariantPrice.amount}}£</p>
+          </article>
+         
+        </g-link>
 
       </div>
 
       <div class="centered">
         <h2>Newsletter</h2>
-        <p>Subscribe and be informed of new publication, exhibitions, events and more !</p>
+        <p>Subscribe and be informed of new publication, exhibitions, events and more! No spam, not more than an email a month, that's a promisse.</p>
         <div class="input">
           <input type="text" placeholder="Enter your email address ...">
           <button>Subscribe</button>
@@ -51,6 +74,39 @@ query{
           drawing_id
         }
       }
+  },
+  allDrawings( perPage: 4  , filter : { isForSale : {eq : true}}){
+    pageInfo {
+      totalPages
+      currentPage
+    }
+    edges{
+      node{
+        id
+       	name
+        content
+        cover
+        isForSale
+        product{
+          id
+          handle
+          availableForSale
+          images{
+            transformedSrc
+          }
+          priceRange{
+            minVariantPrice{
+              amount
+              currencyCode
+            }
+            maxVariantPrice{
+              amount
+              currencyCode
+            }
+          }
+        }
+      }
+    }
   }
 }
 </page-query>
@@ -101,6 +157,9 @@ export default {
   span{
     margin-right: 7px;
   }
+}
+.not-odd{
+
 }
 .centered{
   position: relative;
@@ -181,4 +240,35 @@ export default {
     }
   }
 }
+
+
+.product-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 30px;
+  margin: 0 0 100px;
+}
+
+.drawing{
+  transition: all .3s ease;
+  position: relative;
+  img{
+    border-radius: 3px;
+  }
+  &:hover{
+    opacity: 0.6;
+  }
+  h3{
+    margin: 10px 5px 5px;
+    color: var(--black);
+    font-size: 20px;
+  }
+  p{
+    font-size: 14px;
+    margin: 5px 5px;
+    color: var(--black);
+    opacity: .5;
+  }
+}
+
 </style>
