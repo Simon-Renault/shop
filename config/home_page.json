@@ -1,39 +1,37 @@
 {
-  "intro": "Hello, I am Simon, a poetic and passionate illustrator. Fascinated by the subtle play between order and chaos, nature and cities, I like to spend hours drawing intricate and detailed environments.",
-  "grid_config": [
-    {
-      "template": "home-page-tile",
-      "drawing_link": "config/drawings/drawing1.md",
-      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/crazy_city.jpg",
-      "sizing": "SQUARE",
-      "title": "Polis",
-      "is_interactive": true
-    },
-    {
-      "template": "home-page-tile",
-      "drawing_link": "config/drawings/polis-3.md",
-      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/farm.jpg",
-      "title": "Farm of the wind",
-      "sizing": "CLASSIC",
-      "is_interactive": true
-    },
-    {
-      "template": "home-page-tile",
-      "drawing_link": "config/drawings/best.md",
-      "title": "Sky city",
-      "sizing": "VERTICAL",
-      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/flying.jpg",
-      "is_interactive": true
-    },
-    {
-      "template": "home-page-tile",
-      "drawing_link": [
-
-      ],
-      "title": "Farm of the wind",
-      "sizing": "CLASSIC",
-      "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/farm_1.jpg",
-      "is_interactive": false
-    }
-  ]
+    "intro": "Hello, I am Simon, a poetic and passionate illustrator. Fascinated by the subtle play between order and chaos, nature and cities, I like to spend hours drawing intricate and detailed environments.",
+    "grid_config": [
+        {
+            "template": "home-page-tile",
+            "drawing_link": "config/drawings/drawing1.md",
+            "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/crazy_city.jpg",
+            "sizing": "SQUARE",
+            "title": "Polis",
+            "is_interactive": true
+        },
+        {
+            "template": "home-page-tile",
+            "drawing_link": "config/drawings/polis-3.md",
+            "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/farm.jpg",
+            "title": "Farm of the wind",
+            "sizing": "CLASSIC",
+            "is_interactive": true
+        },
+        {
+            "template": "home-page-tile",
+            "drawing_link": "config/drawings/best.md",
+            "title": "Sky city",
+            "sizing": "VERTICAL",
+            "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/flying.jpg",
+            "is_interactive": true
+        },
+        {
+            "template": "home-page-tile",
+            "drawing_link": [],
+            "title": "Farm of the wind",
+            "sizing": "CLASSIC",
+            "cover_image": "https://simonr.s3.eu-west-2.amazonaws.com/farm_1.jpg",
+            "is_interactive": false
+        }
+    ]
 }

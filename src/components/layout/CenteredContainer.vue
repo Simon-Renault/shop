@@ -1,17 +1,16 @@
 <template>
     <div class="centered-container">
         <div class="centered-container__inner">
-            <slot/>
+            <slot />
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-
-.centered-container{
-    &__inner{
+.centered-container {
+    &__inner {
         margin: auto;
-        width:1500px;
+        width: 1300px;
         max-width: 100vw;
         min-height: 20px;
         padding: 0 20px;
@@ -20,5 +19,4 @@
         }
     }
 }
-
 </style>

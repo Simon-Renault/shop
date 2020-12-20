@@ -1,28 +1,24 @@
 <template>
-  <Layout>
-   <CenteredContainer>
+    <Layout>
+        <CenteredContainer>
+            <LazyImage class="cover" :shouldLoad="true" src="./imgs/me.jpeg" alt="a photo of simon renault" />
 
-    <LazyImage class="cover" :shouldLoad="true" src="./imgs/me.jpeg" alt="a photo of simon renault"/>
-
-    <TextContainer :html="description"/>
-
-   </CenteredContainer>
-  </Layout>
+            <TextContainer :html="description" />
+        </CenteredContainer>
+    </Layout>
 </template>
 
 <script>
 import AboutConfig from '../../config/about_page.json'
 export default {
-  data : () => ({
-    description : AboutConfig.description
-  })
+    data: () => ({
+        description: AboutConfig.description,
+    }),
 }
 </script>
 
 <style lang="scss" scoped>
-.cover{
-  height: 60vh;
+.cover {
+    height: 60vh;
 }
 </style>
-
-

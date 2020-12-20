@@ -1,25 +1,22 @@
 <template>
-  <Layout>
-    <CenteredContainer>
-
-      <div class="q-container">
-        <h1>404</h1>
-      </div>
-
-   </CenteredContainer>
-  </Layout>
+    <Layout>
+        <CenteredContainer>
+            <div class="q-container">
+                <h1>404</h1>
+            </div>
+        </CenteredContainer>
+    </Layout>
 </template>
 
-
 <style lang="scss">
-  .q-container{
-    color :  var(--accents-2);
-    margin:auto;
-    h1{
-      margin:auto;
-      text-align: center;
-      font-size: 50vmin;
-      font-weight: 900;
+.q-container {
+    color: var(--accents-2);
+    margin: auto;
+    h1 {
+        margin: auto;
+        text-align: center;
+        font-size: 50vmin;
+        font-weight: 900;
     }
-  }
+}
 </style>

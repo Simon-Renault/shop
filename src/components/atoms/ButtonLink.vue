@@ -1,37 +1,23 @@
 <template>
-  <div class="button" :class="type"
-        @click="$emit('click')" 
-        @hover="$emit('hover')">
-
+    <div class="button" :class="type" @click="$emit('click')" @hover="$emit('hover')">
         <g-link v-if="href" :to="href">
-            <slot/>
+            <slot />
         </g-link>
         <button v-else>
-            <slot/>
+            <slot />
         </button>
-  </div>
+    </div>
 </template>
 
 <script>
 export default {
-    props : [
-        "href",
-        "type"
-    ]
+    props: ['href', 'type'],
 }
 </script>
 
 <style lang="scss" scoped>
-.button{
-
-    //intents
-    .Primary{
-
-    }
-    .Secondary{
-
-    }
-    .MINIMAL{
+.button {
+    .MINIMAL {
         color: var(--black);
         position: relative;
         display: inline-flex;
@@ -44,17 +30,6 @@ export default {
         line-height: 24px;
         box-sizing: border-box;
         font-weight: 500;
-
     }
-
-    //Sizing
-    .small{
-
-    }
-    .large{
-
-    }
-
-
 }
 </style>

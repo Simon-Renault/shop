@@ -1,106 +1,116 @@
-@import "toast.scss";
+@import 'toast.scss';
+@import url('https://use.typekit.net/dqp0osx.css');
 
 @font-face {
     font-family: hk-grotesk;
     font-weight: 200;
     src: url(../assets/fonts/HKGrotesk-Light.woff2);
-    font-display: swap
+    font-display: swap;
 }
 
 @font-face {
     font-family: hk-grotesk;
     font-weight: 400;
     src: url(../assets/fonts/HKGrotesk-Regular.woff2);
-    font-display: swap
+    font-display: swap;
 }
 
 @font-face {
     font-family: hk-grotesk;
     font-weight: 600;
     src: url(../assets/fonts/HKGrotesk-Medium.woff2);
-    font-display: swap
+    font-display: swap;
 }
 
 @font-face {
     font-family: hk-grotesk;
     font-weight: 700;
     src: url(../assets/fonts/HKGrotesk-SemiBold.woff2);
-    font-display: swap
+    font-display: swap;
 }
 
 @font-face {
     font-family: hk-grotesk;
     font-weight: 800;
     src: url(../assets/fonts/HKGrotesk-Bold.woff2);
-    font-display: swap
+    font-display: swap;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  -webkit-tap-highlight: none;
-  -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 :root {
-  font-family: hk-grotesk , sans-serif;
-  --black: #212121;
-  --light-grey: #F3F3F5;
-  --header-height : 90px;
-  --accents-1: #fafafa;
-  --accents-2: #eaeaea;
-  --accents-3: #999;
-  --accents-4: #888;
-  --accents-5: #666;
-  --accents-6: #444;
-  --accents-7: #333;
-  --accents-8: #111;
+    font-family: hk-grotesk, sans-serif;
+    --black: #212121;
+    --light-grey: #f3f3f5;
+    --header-height: 90px;
+    --accents-1: #fafafa;
+    --accents-2: #eaeaea;
+    --accents-3: #999;
+    --accents-4: #888;
+    --accents-5: #666;
+    --accents-6: #444;
+    --accents-7: #333;
+    --accents-8: #111;
 
-  --header-shadow : 0 1px 30px 0 rgba(145,145,145,0.2);
+    --header-shadow: 0 1px 30px 0 rgba(145, 145, 145, 0.2);
 
-  --shadow-small: 0 5px 10px rgba(0,0,0,0.12);
-  --shadow-medium: 0 8px 30px rgba(0,0,0,0.12);
-  --shadow-large: 0 30px 60px rgba(0,0,0,0.12);
-  --shadow-hover: 0 30px 60px rgba(0,0,0,0.12);
-  --shadow-sticky: 0 12px 10px -10px rgba(0,0,0,0.12);
+    --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --shadow-large: 0 30px 60px rgba(0, 0, 0, 0.12);
+    --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.12);
+    --shadow-sticky: 0 12px 10px -10px rgba(0, 0, 0, 0.12);
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
-
 
 @keyframes skeleton-glow {
-  0% {
-      background: rgba(206,217,224,.2);
-      border-color: rgba(206,217,224,.2)
-  }
+    0% {
+        background: rgba(206, 217, 224, 0.2);
+        border-color: rgba(206, 217, 224, 0.2);
+    }
 
-  to {
-      background: rgba(92,112,128,.2);
-      border-color: rgba(92,112,128,.2)
-  }
+    to {
+        background: rgba(92, 112, 128, 0.2);
+        border-color: rgba(92, 112, 128, 0.2);
+    }
 }
 
-.skeleton{
-  animation: skeleton-glow 1s linear infinite alternate;
-  background: rgba(206,217,224,.2);
-  background-clip: padding-box!important;
-  border-color: rgba(206,217,224,.2)!important;
-  border-radius: 2px;
-  box-shadow: none!important;
-  color: transparent!important;
-  cursor: default;
-  pointer-events: none;
-  user-select: none;
-  border:none !important;
+.skeleton {
+    animation: skeleton-glow 1s linear infinite alternate;
+    background: rgba(206, 217, 224, 0.2);
+    background-clip: padding-box !important;
+    border-color: rgba(206, 217, 224, 0.2) !important;
+    border-radius: 2px;
+    box-shadow: none !important;
+    color: transparent !important;
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+    border: none !important;
 }
 
+input::placeholder {
+    color: var(--accents-3);
+    opacity: 0.8;
+}
 
-input::placeholder{
-  color: var(--accents-3);
-  opacity: 0.8;
+h1,
+h2,
+h3,
+h4 {
+    font-family: span, serif;
+}
+
+img {
+    object-fit: cover;
 }

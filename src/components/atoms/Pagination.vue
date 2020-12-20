@@ -1,26 +1,26 @@
 <template>
-   <Pager class="pager" :info="info"/>
+    <Pager class="pager" :info="info" />
 </template>
 
 <script>
 import { Pager } from 'gridsome'
 
 export default {
-    props : ["info"],
+    props: ['info'],
     components: {
-        Pager
-    }
+        Pager,
+    },
 }
 </script>
 
-<style lang="scss"  >
-.pager{
-    margin:auto;
+<style lang="scss">
+.pager {
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 20px 0 100px;
-    a{
+    a {
         color: var(--black);
         position: relative;
         display: inline-flex;
@@ -34,11 +34,10 @@ export default {
         box-sizing: border-box;
         font-weight: 500;
         padding: 5px 10px;
-        &:hover{
+        &:hover {
             background: var(--accents-2);
             border-radius: 3px;
         }
-
     }
 }
 </style>
