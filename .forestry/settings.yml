@@ -5,8 +5,9 @@ admin_path: ''
 webhook_url: 
 sections:
 - type: document
-  path: config/home_page.json
+  path: content/test.json
   label: test
+  match: "**/*"
 - type: heading
   label: Pages
 - type: document
