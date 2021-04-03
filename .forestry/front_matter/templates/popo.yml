@@ -1,4 +1,9 @@
 ---
 label: popo
 hide_body: false
-fields: []
+fields:
+- name: tittre
+  type: text
+  config:
+    required: false
+  label: tittre
